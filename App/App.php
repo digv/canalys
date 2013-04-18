@@ -11,7 +11,7 @@ class App {
 
 	public static function run() {
 		
-		$path = $_SERVER ['SCRIPT_URL'];
+		$path = $_SERVER ['PHP_SELF'];
 		var_dump($_SERVER);
 	
 		//remove last trailing slash		

@@ -28,12 +28,13 @@ class App {
 		
 		//as we didnt do url rewrite, so we take path[1] as controller name, path[2] as action,
 		// the following as the params
-		$controller = (isset ($path[1]) && App :: isValidIdentifier($path[1])) ? $path[1] : 'default';
+		$controllerName = (isset ($path[1]) && App :: isValidIdentifier($path[1])) ? $path[1] : 'default';
 		
 		//get controller class name and upper case the first letter
-		$controller = strtolower($controller);
-		$controller = App::CONTROLLER_PREFIX. '_'. ucFirst($controller);
+		$controllerName = strtolower($controllerName);
+		$controllerName = App::CONTROLLER_PREFIX. '_'. ucFirst($controllerName);
 		
+		$controller = new $controllerName ();
 		//get the method name
 		
 		$method = (isset ($path[2]) && App :: isValidIdentifier($path[2])) ? $path[2] : 'default';

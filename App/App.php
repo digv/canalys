@@ -6,8 +6,11 @@
  */
 class App {
 	
-	// Dispatch function to start the whole process
 	const METHOD_PREFIX = 'handle';
+	const CONTROLLER_PREFIX = 'Controller';
+	
+	
+	// Dispatch function to start the whole process
 
 	public static function run() {
 		
@@ -29,7 +32,7 @@ class App {
 		
 		//get controller class name and upper case the first letter
 		$controller = strtolower($controller);
-		$class = ucFirst($controller);
+		$controller = App::CONTROLLER_PREFIX. '_'. ucFirst($controller);
 		
 		//get the method name
 		
@@ -37,7 +40,7 @@ class App {
 		$method = strtolower($method);
 		$method = App::METHOD_PREFIX. ucfirst($method);
 		
-		var_dump($class, $method);
+		var_dump($controller, $method);
 	}
 	
 	/*

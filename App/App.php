@@ -12,7 +12,7 @@ class App {
 	public static function run() {
 		
 		$path = $_SERVER ['SCRIPT_URL'];
-		var_dump($path);
+		var_dump($_SERVER);
 	
 		//remove last trailing slash		
 		if (substr($path, -1, 1) == '/') {	

@@ -40,7 +40,9 @@ class App {
 		$method = strtolower($method);
 		$method = App::METHOD_PREFIX. ucfirst($method);
 		
-		var_dump($controller, $method);
+		//begin to run
+		
+		$controller -> {$method} ();
 	}
 	
 	/*

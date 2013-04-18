@@ -54,6 +54,7 @@ class App {
 		
 		// autodiscover the path from the class name		// Core_Controller becomes MUCO/Core/Controller.php		
 		$path = App::findFilenameFromClassname ( $class );
+		var_dump($path);
 		if (file_exists ( $_SERVER ['DOCUMENT_ROOT'] . '/../App/' . $path )) {
 			
 			require_once ($path);

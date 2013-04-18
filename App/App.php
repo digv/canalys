@@ -7,12 +7,11 @@
 class App {
 	
 	// Dispatch function to start the whole process
-	
+	const METHOD_PREFIX = 'handle';
 
 	public static function run() {
 		
 		$path = $_SERVER ['PHP_SELF'];
-		var_dump($_SERVER);
 	
 		//remove last trailing slash		
 		if (substr($path, -1, 1) == '/') {	
@@ -21,9 +20,24 @@ class App {
 		}
 		
 		$path = explode('/', $path);
+		//always remove the first
+		array_shift($path);
 		
-		var_dump($path);
+		//as we didnt do url rewrite, so we take path[1] as controller name, path[2] as action,
+		// the following as the params
+		$controller = (isset ($path[1]) && App :: isValidIdentifier($path[1])) ? $path[1] : 'default';
 		
+		//get controller class name and upper case the first letter
+		$controller = strtolower($controller);
+		$class = ucFirst($controller);
+		
+		//get the method name
+		
+		$method = (isset ($path[2]) && App :: isValidIdentifier($path[2])) ? $path[2] : 'default';
+		$method = strtolower($method);
+		$method = App::METHOD_PREFIX. ucfirst($method);
+		
+		var_dump($class, $method);
 	}
 	
 	/*
@@ -46,6 +60,13 @@ class App {
 	public static function findFilenameFromClassname($class) {
 		
 		return str_replace ( '_', DIRECTORY_SEPARATOR, $class ) . '.php';
+	}
+	
+	/**
+	 * Indicates whether given string is a valid controller or method identifier
+	 */
+	public static function isValidIdentifier($id) {
+		return preg_match ( '/^[a-zA-Z0-9 \_\"\'\,\.]+$/', $id ) ? true : false;
 	}
 }
 

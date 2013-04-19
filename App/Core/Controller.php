@@ -62,6 +62,17 @@ Class Core_Controller {
 	 */
 	
 	public function mustLogin () {
+		
+		if (isset ( $_POST ['commit'] )) {
+			$model = new Model_User ();
+			$login = trim ( $_POST ['login'] );
+			$pwd = trim ( $_POST ['password'] );
+			$result = $model->login ( $login, $pwd );
+			if ($result) {
+				$_SESSION ['userName'] = $result ['name'];
+				return '';
+			}
+		}
 		if (!$_SESSION['userName']) {
 			$this-> renderLoginForm();
 		}
@@ -73,7 +84,6 @@ Class Core_Controller {
 	
 	public function renderLoginForm () {
 		$view = new View_Login();
-		$model = new Model_User();
 		$view -> setModel($model);
 		$view -> render();
 		exit;

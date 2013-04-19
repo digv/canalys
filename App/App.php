@@ -9,7 +9,7 @@ class App {
 	const METHOD_PREFIX = 'handle';
 	const CONTROLLER_PREFIX = 'Controller';
 	
-	
+	private $db;
 	// Dispatch function to start the whole process
 
 	public static function run() {
@@ -85,6 +85,24 @@ class App {
 	 */
 	public static function isValidIdentifier($id) {
 		return preg_match ( '/^[a-zA-Z0-9 \_\"\'\,\.]+$/', $id ) ? true : false;
+	}
+	
+	/*
+	 * get Db singleton
+	 */
+	
+	public static function getDb () {
+		
+		//database connection config file 
+		$config ['type'] = 'mysql'; // connection type
+		$config ['host'] = 'localhost'; // db hostname
+		$config ['name'] = 'ca'; // db name
+		$config ['user'] = ''; // db username
+		$config ['pass'] = ''; // db password
+		$config ['persistent'] = false;  // db connection persistence?
+		
+		$this -> db = new Db_Pdo($config);
+		return $this -> db;
 	}
 }
 

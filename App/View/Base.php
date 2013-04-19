@@ -205,7 +205,7 @@ html;
                     <div class="left-header">   <!-- div left header starts -->
                     
                         <h1 class="logo">
-                            <a class="logo" title="Dig we" href=""><img alt="Dig we" src="{$baseUrl}/images/logo.jpg"></a>
+                            <a class="logo" title="Dig we" href="{$baseUrl}"><img alt="Dig we" src="{$baseUrl}/images/logo.jpg"></a>
                         </h1>
                         
                     </div>  <!-- div left header ends -->

@@ -1,4 +1,5 @@
 <?php
+use Zend\Crypt\PublicKey\Rsa\PublicKey;
 Class Core_Controller {
 	
 	/*
@@ -54,6 +55,28 @@ Class Core_Controller {
 	
 	public function preRequest () {
 		session_start();
+	}
+	
+	/*
+	 * must login to process
+	 */
+	
+	public function mustLogin () {
+		if (!$_SESSION['userName']) {
+			$this-> renderLoginForm();
+		}
+	}
+	
+	/*
+	 * render login form and process login 
+	 */
+	
+	public function renderLoginForm () {
+		$view = new View_Login();
+		$model = new Model_User();
+		$view -> setModel($model);
+		$view -> render();
+		exit;
 	}
 	
 }

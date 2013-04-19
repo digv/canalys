@@ -659,6 +659,11 @@ span.td-bold {
 	font-weight: bold;
 }
 
+.input-block {
+    display: block;
+    width: 100%;
+}
+
 .auth-form-body {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;

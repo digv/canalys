@@ -170,6 +170,8 @@ html;
 	
 	//navigation
 	public function renderNav () {
+		$helper = Helper_Url::getInstance();
+		$helper -> baseUrl();
 		
 		$return  = <<<html
 					<ul id="nav2">

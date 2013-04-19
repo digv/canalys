@@ -41,9 +41,21 @@ class App {
 		$method = strtolower($method);
 		$method = App::METHOD_PREFIX. ucfirst($method);
 		
-		//begin to run
+		//set url request params
+		unset($path[0]);	//index.php
+		unset($path[0]);	//controller name
+		unset($path[0]);	//action name
 		
+		$controller -> setRequestArgs ($path);
+		
+		//begin to run preRequest
+		$controller -> preRequest ();
+		
+		//begin to run action
 		$controller -> {$method} ();
+		
+		//begin to run proRequest 
+		$controller->postRequest();
 	}
 	
 	/*

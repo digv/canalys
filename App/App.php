@@ -15,7 +15,7 @@ class App {
 	public static function run() {
 		
 		$path = $_SERVER ['PHP_SELF'];
-	
+		$path = substr($path, strpos($path, 'index.php')-1 );
 		//remove last trailing slash		
 		if (substr($path, -1, 1) == '/') {	
 					
@@ -66,9 +66,9 @@ class App {
 		
 		// autodiscover the path from the class name		// Core_Controller becomes MUCO/Core/Controller.php		
 		$path = App::findFilenameFromClassname ( $class );
-		if (file_exists ( $_SERVER ['DOCUMENT_ROOT'] . '/../App/' . $path )) {
+		if (file_exists ( realpath('../App/' . $path ))) {
 			
-			require_once ($path);
+			require_once (realpath('../App/' . $path));
 		}
 	}
 	

@@ -11,6 +11,10 @@ class Helper_Url {
 	public function baseUrl () {
 		
 		
-		return 'http://'. $_SERVER['SERVER_NAME'];
+		return 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+	}
+	
+	public function cleanUrl () {
+		return str_replace('index.php', '', $this->baseUrl());
 	}
 }

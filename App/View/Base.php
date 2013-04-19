@@ -24,6 +24,7 @@ class View_Base extends Core_View {
      */
 	public $jsincludes = array (
 		'js/jquery-1.9.1.min.js',
+		'js/common.js',
 	);
 	
 	/*

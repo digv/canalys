@@ -3,8 +3,15 @@ class View_Login extends View_Base {
 	
 	public function renderMain() {
 		
+		if (isset($_POST['commit'])) {
+			$login = trim ($_POST['login']);
+			$pwd = trim ($_POST['password']);
+			$result = $this->_model -> login ($login, $pwd);
+			var_dump($result);
+		}
+		
 		$return =<<<html
-		<form method="post" action="" accept-charset="UTF-8">
+		<form method="post" action=" accept-charset="UTF-8">
 		<div class="auth-form-header">
 			<h1>Sign in</h1>
 		</div>
@@ -15,7 +22,7 @@ class View_Login extends View_Base {
 				Password
 			</label>
 			<input id="password" class="input-block" type="password" tabindex="2" name="password" autocomplete="disabled">
-			<input class="button" type="submit" value="Sign in" tabindex="3" name="commit">
+			<input class="button" type="button" value="Sign in" tabindex="3" id="commit" name="login">
 		</div>
 		</form>
 html;

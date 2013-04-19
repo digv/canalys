@@ -4,7 +4,7 @@ class View_Login extends View_Base {
 	public function renderMain() {
 		
 		$return =<<<html
-		<form method="post" action=" accept-charset="UTF-8">
+		<form method="post" action="" accept-charset="UTF-8">
 		<div class="auth-form-header">
 			<h1>Sign in</h1>
 		</div>

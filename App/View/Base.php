@@ -173,10 +173,10 @@ html;
 		
 		$return  = <<<html
 					<ul id="nav2">
-                        <li class=""><a href="index.html"><span>Home</span></a></li>
-                        <li class=""><a href="a.html"><span>Who we serve</span></a></li>
-                        <li class=""><a href="b.html"><span>What we do</span></a></li>
-                        <li class=""><a href="c.html"><span>Newsroom</span></a></li>
+                        <li class=""><a href="index.php"><span>Home</span></a></li>
+                        <li class=""><a href="index.php/staff"><span>Who we serve</span></a></li>
+                        <li class=""><a href="index.php/project"><span>What we do</span></a></li>
+                        <li class=""><a href="index.php/logout"><span>Newsroom</span></a></li>
                         <li class=""><a href="d.html"><span>About us</span></a></li>
                         <li class=""><a href="e.html"><span>Contact us</span></a></li>
                         <li class="last"><a href="f.html"><span>Help</span></a></li>

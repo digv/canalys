@@ -32,7 +32,9 @@ class View_Base extends Core_View {
 	 */
     public function renderJS() {
 		$return = '';
+		$helper = Helper_Url::getInstance();
     	foreach ($this->jsincludes as $js) {
+    		$js = $helper -> baseUrl(). '/'. $js;
     		$return .= '<script type="text/javascript" src="' . $js . '"></script>';
     	}
     	return $return;
@@ -50,7 +52,9 @@ class View_Base extends Core_View {
 	 */
 	public function renderCss() {
 		$return = '';
+		$helper = Helper_Url::getInstance();
 		foreach ( $this->display_css as $css ) {
+			$css = $helper -> baseUrl(). '/'. $css;
 			$return .= "<link rel=\"stylesheet\" href=\"{$css}\" type=\"text/css\" />\n";
 		}
 		return $return;
@@ -61,6 +65,7 @@ class View_Base extends Core_View {
 	 */
 	
 	public function renderBegin() {
+		$helper = Helper_Url::getInstance();
 		
 ?>
 
@@ -71,7 +76,7 @@ class View_Base extends Core_View {
 <title><?php echo $this->getPageTitle(); ?></title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="icon" href="images/digv.ico" type="image/x-icon" /> <!-- company favicon -->
+<link rel="icon" href="<?php echo $helper -> baseUrl(); ?>/images/digv.ico" type="image/x-icon" /> <!-- company favicon -->
 
 <!-- style css -->
 

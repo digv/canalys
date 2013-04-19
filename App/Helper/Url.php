@@ -10,7 +10,7 @@ class Helper_Url {
 	
 	public function baseUrl () {
 		
-		var_dump($_SERVER);
-		return 'ca.digv.co';
+		
+		return 'http://'. $_SERVER['SERVER_NAME'];
 	}
 }

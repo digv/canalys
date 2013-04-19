@@ -196,13 +196,16 @@ html;
 	}
 	
 	public function renderHeader () {
+		
+		$helper = Helper_Url::getInstance();
+		$baseUrl = $helper -> baseUrl();
 		$return = <<<html
 		<div class="header">    <!-- div header starts -->
                 
                     <div class="left-header">   <!-- div left header starts -->
                     
                         <h1 class="logo">
-                            <a class="logo" title="Dig we" href=""><img alt="Dig we" src="images/logo.jpg"></a>
+                            <a class="logo" title="Dig we" href=""><img alt="Dig we" src="{$baseUrl}/images/logo.jpg"></a>
                         </h1>
                         
                     </div>  <!-- div left header ends -->

@@ -4,6 +4,7 @@ class View_Login extends View_Base {
 	public function renderMain() {
 		
 		$return =<<<html
+		<form method="post" action="" accept-charset="UTF-8">
 		<div class="auth-form-header">
 			<h1>Sign in</h1>
 		</div>
@@ -16,6 +17,7 @@ class View_Login extends View_Base {
 			<input id="password" class="input-block" type="password" tabindex="2" name="password" autocomplete="disabled">
 			<input class="button" type="submit" value="Sign in" tabindex="3" name="commit">
 		</div>
+		</form>
 html;
 	
 		return $return;

@@ -122,7 +122,7 @@ html;
 html;
 	
 		$return .= $this -> renderFooter();
-		return $return;
+		echo $return;
 	}
 	
 	//side bar

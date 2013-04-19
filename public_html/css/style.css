@@ -658,3 +658,28 @@ img.product-img {
 span.td-bold {
 	font-weight: bold;
 }
+
+.auth-form-body {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -moz-box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-color: white #D8DEE2 #D8DEE2;
+    border-image: none;
+    border-radius: 0 0 4px 4px;
+    border-right: 1px solid #D8DEE2;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    padding: 20px;
+}
+.auth-form-body .input-block {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.auth-form-body p.small_notice {
+    display: inline;
+    padding: 0 10px;
+}

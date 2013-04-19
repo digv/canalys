@@ -181,10 +181,10 @@ html;
 		$return  = <<<html
 					<ul id="nav2">
                         <li class=""><a href="{$baseUrl}"><span>Home</span></a></li>
-                        <li class=""><a href="{$baseUrl}/index.php/staff"><span>Staff Management</span></a></li>
-                        <li class=""><a href="{$baseUrl}/index.php/project"><span>Project Management</span></a></li>
+                        <li class=""><a href="{$baseUrl}/index.php/staff"><span>Staff</span></a></li>
+                        <li class=""><a href="{$baseUrl}/index.php/project"><span>Project</span></a></li>
                         <li class=""><a href="{$baseUrl}/index.php/logout"><span>Logout</span></a></li>
-                        <li class=""><a href="d.html"><span>Project Assignment</span></a></li>
+                        <li class=""><a href="d.html"><span>Assignment</span></a></li>
                         <li class=""><a href="e.html"><span>Contact us</span></a></li>
                         <li class="last"><a href="f.html"><span>Help</span></a></li>
                     </ul>

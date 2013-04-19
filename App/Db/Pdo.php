@@ -9,6 +9,15 @@
  * License:    LGPL, see included license file  
  ***/
 
+/* define SQL actions */
+if(!defined('TMVC_SQL_NONE'))
+  define('TMVC_SQL_NONE', 0);
+if(!defined('TMVC_SQL_INIT'))
+  define('TMVC_SQL_INIT', 1);
+if(!defined('TMVC_SQL_ALL'))
+  define('TMVC_SQL_ALL', 2);
+  
+  
 class Db_Pdo {
 	/**
 	 * $pdo

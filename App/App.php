@@ -9,7 +9,7 @@ class App {
 	const METHOD_PREFIX = 'handle';
 	const CONTROLLER_PREFIX = 'Controller';
 	
-	private $db;
+	public static  $db;
 	// Dispatch function to start the whole process
 
 	public static function run() {
@@ -101,8 +101,8 @@ class App {
 		$config ['pass'] = ''; // db password
 		$config ['persistent'] = false;  // db connection persistence?
 		
-		$this -> db = new Db_Pdo($config);
-		return $this -> db;
+		App::$db = new Db_Pdo($config);
+		return App::$db;
 	}
 }
 

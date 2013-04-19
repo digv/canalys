@@ -218,6 +218,8 @@ html;
                     <div class="clear_both"></div>
                 </div>  <!-- div header ends -->
 html;
+
+		return $return;
 	}
 		
 

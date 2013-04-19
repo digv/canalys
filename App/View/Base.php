@@ -15,12 +15,16 @@ class View_Base extends Core_View {
 	/*
      * Ordered list of CSS files for display
      */
-	public $display_css = array ();
+	public $display_css = array (
+		'css/style.css',
+	);
 	
 	/*
      * Ordered list of Javascript include files
      */
-	public $jsincludes = array ();
+	public $jsincludes = array (
+		'js/jquery-1.9.1.min.js',
+	);
 	
 	/*
 	 * render js files

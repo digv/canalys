@@ -142,12 +142,12 @@ class View_Db extends View_Base {
 		
 			var url = '$this->baseUrl';
 			
-			var query;
+			var query = '';
 			
 			var sep = '';
 			$('.qbf').each (function(index, Ele){
 				
-				var id = $(this).id;
+				var id = $(this).attr('id');
 				var value = $.trim($(this).val ());
 				if(value) {
 				

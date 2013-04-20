@@ -61,6 +61,9 @@ class Database_Editor {
 	}
 	
 	public function renderListingCell ($colName, $row) {
+		if (strpos($colName, '.') !== false) {
+			$colName = substr($colName, strpos($colName, '.'));
+		}
 		 return $row[$colName];
 	}
 	

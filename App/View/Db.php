@@ -10,7 +10,7 @@ class View_Db extends View_Base {
 		
 		$cols = $this->_model->getListingColumns ();
 		
-		while ( $row = $this->_model->getListingRows () ) {
+		foreach ( $this->_model->getListingRows () as $row ) {
 			$html .= "<tr>";
 			foreach ( $cols as $colname ) {
 				$html .= "<td>";

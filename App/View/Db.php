@@ -41,12 +41,11 @@ class View_Db extends View_Base {
 		$params ['order'] = $params ['so'] > 0 ? 'asc' : 'desc';
 		
 		$params ['qbf'] = array ();
-		
+		var_dump($_GET);
 		//get the qbf parameters
 		foreach ( $_GET as $name => $value ) {
 			$matches = array ();
 			if (preg_match ( '/^qbf_(.*)$/', $name, $matches )) {
-				var_dump($matches);
 				$params ['qbf'] [$matches [1]] = $value;
 			}
 		}

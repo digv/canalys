@@ -286,7 +286,7 @@ class Database_Editor {
 		$normalPk = $this->removeTablePrefix ( $this->_pk );
 		var_dump($postValues, $normalPk);
 		if (isset ( $postValues [$normalPk] ) && ! empty ( $postValues [$normalPk] )) {
-		
+			$this->_update();
 		} else {
 			$this->_insert ();
 		}

@@ -39,6 +39,16 @@ class Database_Editor {
 	
 	public function prepareListing ($params) {
 		
+		$count = intval($params['pagesize']);
+        $offset = intval($params['offset']);
+        $sort_field = $params['sort'];
+        $sort_order = $params['order'];
+        
+        $order = "";
+        $where = "";
+        
+        var_dump($params);
+        if ($sort_field)
 		$sql = $this->assembleSqlStatement();
 		$this->_listRows = App::getDb() -> query_all ($sql);
 		$this->_totalCount = App::getDb() -> query_one ('SELECT FOUND_ROWS()');

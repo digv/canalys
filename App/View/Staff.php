@@ -3,13 +3,13 @@ class View_Staff extends View_Db {
 	
 	protected $baseUrl = "http://ca.digv.co/index.php/staff/qbf";
 	public function renderMain() {
+		//get url params and parse
+		$params = $this->parseParams();
+		
 		
 		$return = "<h1>Staff Management</h1>";
 		
-		$this->_model-> prepareListing (array());
-		
-		//get url params and parse
-		$params = $this->parseParams();
+		$this->_model-> prepareListing ($params);
 		
 		$return .= '<table class="nav">';
 		

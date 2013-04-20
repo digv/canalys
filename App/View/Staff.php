@@ -15,7 +15,7 @@ class View_Staff extends View_Db {
 		
 		//thead starts
 		$return .= "<thead>";
-		$return .= "<tr class='sortRow'>";
+		$return .= "<tr class='sortrow'>";
 		$return .= $this->sortRow($params);
 		$return .= "</tr>";
 		$return .= "<tr>";

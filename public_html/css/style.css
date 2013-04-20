@@ -753,8 +753,8 @@ span.td-bold {
     border-left: medium none;
 }
 
-.sortRow td {
-	border-bottom:none;
+.sortrow td {
+	border-bottom-style:none;
 }
 .datalist th:first-child {
     border-radius: 6px 0 0 0;

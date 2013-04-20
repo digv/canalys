@@ -4,5 +4,5 @@
 
 $(document).ready (function () {
 	
-	$('.qbf').bind ('keypress', handleQbfCall)
+	$('.qbf').bind ('keyup', handleQbfCall)
 })

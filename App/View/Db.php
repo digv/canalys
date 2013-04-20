@@ -44,8 +44,8 @@ class View_Db extends View_Base {
 		//get the qbf parameters
 		foreach ( $_GET as $name => $value ) {
 			$matches = array ();
-			$name = str_replace('_', '.', $name, 1);
 			if (preg_match ( '/^qbf_(.*)$/', $name, $matches )) {
+				$matches [1] = str_replace('_', '.', $matches [1], 1);
 				$params ['qbf'] [$matches [1]] = $value;
 			}
 		}

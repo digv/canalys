@@ -42,9 +42,9 @@ class App {
 		$method = App::METHOD_PREFIX. ucfirst($method);
 		
 		//set url request params
-		unset($path[0]);	//index.php
-		unset($path[1]);	//controller name
-		unset($path[2]);	//action name
+		array_shift($path);	//index.php
+		array_shift($path);	//controller name
+		array_shift($path);	//action name
 		
 		$controller -> setRequestArgs ($path);
 		

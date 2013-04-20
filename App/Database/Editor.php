@@ -238,6 +238,11 @@ class Database_Editor {
 		
 	}
 	
+	//update record
+	public function _update () {
+		
+		
+	}
 	public function processPostData() {
 		foreach ( $_POST as $key => $val ) {
 			$key = $this->removeTablePrefix ( $key, '_' );
@@ -251,15 +256,14 @@ class Database_Editor {
 		
 	}
 	
-	public function save () {
-		if (isset($_POST['savechanges'])) {
-			$postValues = $this->processPostData();
-			$normalPk = $this->removeTablePrefix($this->_pk);
-			if (isset($postValues[$normalPk]) && !empty($postValues[$normalPk])) {
-				
-			} else {
-				$this->_insert();
-			}
+	public function save() {
+		$postValues = $this->processPostData ();
+		$normalPk = $this->removeTablePrefix ( $this->_pk );
+		var_dump($postValues, $normalPk);
+		if (isset ( $postValues [$normalPk] ) && ! empty ( $postValues [$normalPk] )) {
+		
+		} else {
+			$this->_insert ();
 		}
 	}
 	

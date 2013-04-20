@@ -11,9 +11,12 @@ class View_Db extends View_Base {
 		$html = '';
 		
 		$cols = $this->_model->getListingColumns ();
-		
+		$i = 0;
 		foreach ( $this->_model->getListingRows () as $row ) {
-			$html .= "<tr>";
+			if ($i % 2 == 0) {
+				$class= "class='alt'";
+			}
+			$html .= "<tr $class>";
 			foreach ( $cols as $colname ) {
 				$html .= "<td>";
 				$html .= $this->_model->renderListingCell ( $colname, $row );

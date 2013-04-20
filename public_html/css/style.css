@@ -920,3 +920,7 @@ span.td-bold {
 	font-size: 12px;
     width: 15em;
 }
+
+.alt {
+	background: none repeat scroll 0 0 #DFDFDF;
+}

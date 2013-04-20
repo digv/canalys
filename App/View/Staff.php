@@ -1,6 +1,7 @@
 <?php
 class View_Staff extends View_Db {
 	
+	protected $baseUrl = "http://ca.digv.co/index.php/staff";
 	public function renderMain() {
 		
 		$return = "<h1>Staff Management</h1>";

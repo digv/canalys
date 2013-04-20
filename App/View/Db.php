@@ -112,4 +112,61 @@ class View_Db extends View_Base {
 	
 	}
 	
+	/*
+	 * Render an ajax result
+	 */
+	public function renderAjax() {
+		$params = $this->parseParams();
+
+		$this->_model->prepareListing($params);
+
+		$hdrs = $this->_model->getListingHeaders();
+		$cols = $this->_model->getListingColumns();
+		//$total = $this->_model->getTotalRowCount();
+
+		$result = array ();
+
+		$result['resultrows'] = $this->resultTable();
+		//$result['nav'] = $this->pageControls($params);
+		$result['sortrow'] = $this->sortRow($params);
+
+		$jsonResult = json_encode($result);
+
+		echo $jsonResult;
+	}
+	
+	public function renderQbfJs () {
+		$html = <<<html
+		
+		function handleQbfCall () {
+		
+			var url = $this->baseUrl;
+			
+			var query;
+			
+			var sep = '';
+			$('.qbf').each (function(index, Ele){
+				
+				var id = $(this).id;
+				var value = $.trim($(this).val ());
+				if(value) {
+				
+					query = query + sep + id + '=' + value;
+					sep = '&';
+				}
+			
+			});
+			
+			url = url + '?' + query;
+			$.ajax ({
+				url:url,
+				type:'get',
+			
+			});
+		
+		}
+		
+html;
+	}
+	
 }

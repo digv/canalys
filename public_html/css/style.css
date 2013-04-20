@@ -736,13 +736,13 @@ span.td-bold {
     background: none repeat scroll 0 0 #FBF8E9;
     transition: all 0.1s ease-in-out 0s;
 }
-.datalist td, .datalist th {
+.datalist td, .datalist thead {
     border-left: 1px solid #CCCCCC;
     border-top: 1px solid #CCCCCC;
     padding: 10px;
     text-align: left;
 }
-.datalist th {
+.datalist thead {
     background-color: #DCE9F9;
     background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9);
     border-top: medium none;

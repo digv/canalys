@@ -209,7 +209,12 @@ class Database_Editor {
 	
 	//remove table alias prefix
 	public function removeTablePrefix ($attr, $flag = '.') {
-		return $attr = substr($attr, strpos($attr, $flag) + 1);
+		if (strpos($attr, $flag) !== false) {
+			return $attr = substr($attr, strpos($attr, $flag) + 1);
+		} else {
+			return $attr;
+		}
+		
 	}
 	//if it is new, then insert 
 	public function _insert () {

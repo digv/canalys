@@ -137,7 +137,7 @@ class View_Db extends View_Base {
 	
 	public function renderQbfJs () {
 		$html = <<<html
-		
+		<script type="text/javascript">
 		function handleQbfCall () {
 		
 			var url = $this->baseUrl;
@@ -166,7 +166,12 @@ class View_Db extends View_Base {
 		
 		}
 		
+		
+		</script>
+		
 html;
+
+		return $html;
 	}
 	
 }

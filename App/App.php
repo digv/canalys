@@ -97,8 +97,8 @@ class App {
 		$config ['type'] = 'mysql'; // connection type
 		$config ['host'] = 'localhost'; // db hostname
 		$config ['name'] = 'ca'; // db name
-		$config ['user'] = ''; // db username
-		$config ['pass'] = ''; // db password
+		$config ['user'] = 'root'; // db username
+		$config ['pass'] = 'ppshare'; // db password
 		$config ['persistent'] = false;  // db connection persistence?
 		
 		App::$db = new Db_Pdo($config);

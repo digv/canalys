@@ -38,6 +38,8 @@ class View_Staff extends View_Db {
 		
 		$return .= '</table>';
 		
+		$return .= $this->renderQbfJs();
+		
 		return $return;
 	}
 }

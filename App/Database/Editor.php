@@ -135,7 +135,7 @@ class Database_Editor {
 		if (!empty($key)) {
 			
 			//load column data
-			$sql = str_replace('?', implode(' , ', $this->columns), $this->sqlStatement);
+			$sql = str_replace('?', implode(' , ', array_keys($this->columns)), $this->sqlStatement);
 			$sql .= ' WHERE '. $this-> _pk . '= ? ';
 			$row = App::getDb ()->query_one ( $sql, array ($key ) );
 			

@@ -130,7 +130,7 @@ class View_Db extends View_Base {
 				dataType:'json',
 				success:function (text) {
 					
-					var json=eval('('+text+')');
+					var json= $.parseJSON (text);
 					$('.listbody').html(json.resultrows);
 					$('.sortrow').html(json.sortrow);
 	

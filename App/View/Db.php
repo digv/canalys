@@ -15,6 +15,8 @@ class View_Db extends View_Base {
 		foreach ( $this->_model->getListingRows () as $row ) {
 			if ($i % 2 == 0) {
 				$class= "class='alt'";
+			} else {
+				$class = '';
 			}
 			$html .= "<tr $class>";
 			foreach ( $cols as $colname ) {

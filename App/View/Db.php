@@ -42,10 +42,11 @@ class View_Db extends View_Base {
 		
 		$params ['qbf'] = array ();
 		
-		//get the qbe parameters
+		//get the qbf parameters
 		foreach ( $_GET as $name => $value ) {
 			$matches = array ();
 			if (preg_match ( '/^qbf_(.*)$/', $name, $matches )) {
+				var_dump($matches);
 				$params ['qbf'] [$matches [1]] = $value;
 			}
 		}
@@ -54,7 +55,6 @@ class View_Db extends View_Base {
 	}
 	
 	public function encodeParams($params) {
-		//override?
 		if (func_num_args () > 1) {
 			$c = (func_num_args () - 1) / 2;
 			for($i = 0; $i < $c; $i ++) {

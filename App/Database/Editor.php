@@ -47,7 +47,13 @@ class Database_Editor {
         $order = "";
         $where = "";
         
-        var_dump($params);
+        if (!empty($sort_field) && !empty($sort_order)) {
+        	$order = " ORDER BY $sort_field $sort_order";
+        }
+        
+        foreach ($params['qbf'] as $filter) {
+        	
+        }
         if ($sort_field)
 		$sql = $this->assembleSqlStatement();
 		$this->_listRows = App::getDb() -> query_all ($sql);

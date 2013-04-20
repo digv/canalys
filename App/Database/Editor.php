@@ -52,7 +52,7 @@ class Database_Editor {
         }
         
         foreach ($params['qbf'] as  $field => $fieldValue) {
-        	$where[] = $field . " LIKE %'". $fieldValue. "%' ";
+        	$where[] = $field . " LIKE '%". $fieldValue. "%' ";
         }
 		$sql = $this->assembleSqlStatement();
 		if (!empty($where)) {

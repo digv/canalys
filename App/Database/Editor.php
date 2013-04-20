@@ -225,7 +225,7 @@ class Database_Editor {
 		$values = array();
 		$postValues = $this->processedPost;
 		
-		foreach ($this->columns as $field) {
+		foreach ($this->columns as $field => $col) {
 			if ($field == $this->_pk) {
 				continue;
 			}

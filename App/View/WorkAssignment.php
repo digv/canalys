@@ -1,7 +1,7 @@
 <?php
 class View_WorkAssignment extends View_Db {
 	
-	protected $baseUrl = "http://ca.digv.co/index.php/qbf";
+	protected $baseUrl = "http://ca.digv.co/index.php/Default/qbf";
 	
 	
 	/*

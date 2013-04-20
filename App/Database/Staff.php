@@ -8,6 +8,8 @@ class Database_Staff extends Database_Editor {
 	
 	protected $_table = 'staff';
 	
+	protected $_pk = 'sf.staff_id';
+	
 	protected $columns = array (
 	
 	'sf.staff_id' => array (

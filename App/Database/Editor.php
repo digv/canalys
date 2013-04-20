@@ -7,6 +7,12 @@ class Database_Editor {
 	protected $_table;
 	
 	/*
+	 * primary key
+	 */
+	
+	protected $_pk;
+	
+	/*
 	 * columns that need to be listed
 	 */
 	
@@ -122,5 +128,22 @@ class Database_Editor {
 	}
 	
 	
+	//prepare editor for edit page
+	
+	public function prepareEditor ($key) {
+		
+		if (!empty($key)) {
+			
+			//load column data
+			$sql = str_replace('?', implode(' , ', $this->columns), $this->sqlStatement);
+			$sql .= ' WHERE '. $this-> _pk . '= ? ';
+			$row = App::getDb ()->query_one ( $sql, array ($key ) );
+			
+			var_dump($row);
+		}
+		
+		
+		
+	}
 	
 }

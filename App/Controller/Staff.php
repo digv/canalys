@@ -25,7 +25,9 @@ class Controller_Staff extends Core_Controller {
 	public function handleEdit () {
 		$args = $this->getRequestArgs();
 		$model = new Database_Staff();
-		var_dump($args);
+		if (isset($args[0]) && is_numeric($args[0])) {
+			$model -> prepareEditor($args[0]);
+		}
 		$view = $this->prepView('View_Edit', $model);
 		$view -> render ();
 	}

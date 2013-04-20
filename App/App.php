@@ -43,8 +43,8 @@ class App {
 		
 		//set url request params
 		unset($path[0]);	//index.php
-		unset($path[0]);	//controller name
-		unset($path[0]);	//action name
+		unset($path[1]);	//controller name
+		unset($path[2]);	//action name
 		
 		$controller -> setRequestArgs ($path);
 		

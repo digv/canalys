@@ -28,9 +28,9 @@ class Controller_Staff extends Core_Controller {
 		$args = $this->getRequestArgs();
 		$model = new Database_Staff();
 		
-		if ($_POST['savechanges']) {
+		if (isset($_POST['savechanges'])) {
 			$model -> save();
-		} else if ($_POST['deleterecord']) {
+		} else if (isset($_POST['deleterecord'])) {
 			
 		}
 		if (isset($args[0]) && is_numeric($args[0])) {

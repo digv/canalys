@@ -181,7 +181,7 @@ class Database_Editor {
 	//render pk field or read only part
 	public function renderEditor_PkField($col, $field) {
 		
-		$html .= '<div class="field">';
+		$html = '<div class="field">';
 		$html .= '<label for="'.$col['label'].'" class="edit-label">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
 		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' class='edit-input' />";
@@ -191,7 +191,7 @@ class Database_Editor {
 	
 	//render free text part
 	public function renderEditor_String($col, $field) {
-		$html .= '<div class="field">';
+		$html = '<div class="field">';
 		$html .= '<label for="'.$col['label'].'" class="edit-label">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
 		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input' />";

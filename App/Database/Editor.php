@@ -233,19 +233,39 @@ class Database_Editor {
 			$fields[] = $field;
 			$placeHolder [] = " ? ";
 			if (isset($postValues[$field])) {
-				$values = trim($postValues[$field]);
+				$values[] = trim($postValues[$field]);
 			}
 		}
 		
-		$sql .= "(". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
+		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
 		
-		var_dump($sql);
+		var_dump($sql, $values);
 		
 	}
 	
 	//update record
 	public function _update () {
 		
+		$sql = "UPDATE ". $this->_pk;
+		$sql .= "SET ";
+		$postValues = $this->processedPost;
+		
+		foreach ( $this->columns as $field => $col ) {
+			if ($field == $this->_pk) {
+				continue;
+			}
+			$field = $this->removeTablePrefix ( $field );
+			$fields [] = $field;
+			$placeHolder [] = $field . " = ? ";
+			if (isset ( $postValues [$field] )) {
+				$values[] = trim ( $postValues [$field] );
+			}
+		}
+		$normalPk = $this->removeTablePrefix($this->_pk);
+		$pkValue = $postValues[$normalPk];
+		$sql .= implode(', ', $placeHolder). ' WHERE '. $normalPk . ' = "'. $pkValue. '"';
+		
+		var_dump($sql, $values);
 		
 	}
 	public function processPostData() {

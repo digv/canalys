@@ -78,4 +78,10 @@ class View_Project extends View_Db {
 		
 		return $return;
 	}
+	
+	public function renderSideBar () {
+		
+		$return = "Assign project to employee";
+		return $return;
+	}
 }

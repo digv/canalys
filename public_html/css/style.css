@@ -760,7 +760,7 @@ img {
 	overflow: hidden;
 }
 
-.company-statement, edit-form {
+.company-statement, .edit-form {
 	border: 1px solid #9DC4D8;
 	border-radius: 7px 7px 7px 7px;
 	padding-left: 1.5em;

@@ -29,7 +29,7 @@ class Database_WorkAssignment extends Database_Editor {
 		
 		),*/
 		
-	'pt.name' => array (
+	'pt.project_name' => array (
 		'label' => 'Project Name',
 		'renderer' => 'string',
 		

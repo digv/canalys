@@ -1,17 +1,19 @@
 <?php
-class Database_Staff extends Database_Editor {
+class Database_WorkAssignment extends Database_Editor {
 	
 	/*
 	 * for retrieving staff records from table
 	 */
-	protected $sqlStatement = "SELECT ?  FROM staff AS sf ";
+	protected $sqlStatement = "SELECT ?  FROM assignment AS am
+							   JOIN staff AS sf using (staff_id)
+							   JOIN project AS pt using (project_id)";
 	
-	protected $_table = 'staff';
+	protected $_table = 'assignment';
 	
 	protected $columns = array (
 	
-	'sf.staff_id' => array (
-			'label' => 'Staff Id',
+	'am.staff_id' => array (
+			'label' => 'Project Id',
 			'renderer' => 'string',
 		),
 		
@@ -27,8 +29,8 @@ class Database_Staff extends Database_Editor {
 		
 		),*/
 		
-	'sf.gender' => array (
-		'label' => 'Gender',
+	'pt.name' => array (
+		'label' => 'Project Name',
 		'renderer' => 'string',
 		
 		),

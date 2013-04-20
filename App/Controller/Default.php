@@ -4,7 +4,15 @@ class Controller_Default extends Core_Controller {
 	
 	public function handleDefault() {
 		$this->mustLogin();
-		$view = $this -> prepView('View_Base');
+		$model = new Database_WorkAssignment();
+		$view = $this->prepView('View_Staff', $model);
 		$view -> render ();
+	}
+	
+	public function handleQbf() {
+		$this->mustLogin ();
+		$model = new Database_WorkAssignment ();
+		$view = $this->prepView ( 'View_Staff', $model );
+		$view->renderAjax ();
 	}
 }

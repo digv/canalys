@@ -959,6 +959,7 @@ span.td-bold {
     padding:6px 24px;
     text-decoration:none;
     text-shadow:1px 1px 0px #528ecc;
+    margin: 3px 10px;
 }
 
 .edit-button:hover {

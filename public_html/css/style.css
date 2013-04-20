@@ -723,3 +723,47 @@ span.td-bold {
 .auth-form-header h1 {
     font-size: 16px;
 }
+
+
+.datalist {
+	border-spacing: 0;
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 1px #CCCCCC;
+}
+.datalist tr:hover {
+    background: none repeat scroll 0 0 #FBF8E9;
+    transition: all 0.1s ease-in-out 0s;
+}
+.datalist td, .datalist th {
+    border-left: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    padding: 10px;
+    text-align: left;
+}
+.datalist th {
+    background-color: #DCE9F9;
+    background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9);
+    border-top: medium none;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.datalist td:first-child, .datalist th:first-child {
+    border-left: medium none;
+}
+.datalist th:first-child {
+    border-radius: 6px 0 0 0;
+}
+.datalist th:last-child {
+    border-radius: 0 6px 0 0;
+}
+.datalist th:only-child {
+    border-radius: 6px 6px 0 0;
+}
+.datalist tr:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+}
+.datalist tr:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+}

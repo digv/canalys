@@ -11,7 +11,7 @@ class View_Staff extends View_Db {
 		
 		$this->_model-> prepareListing ($params);
 		
-		$return .= '<table class="nav">';
+		$return .= '<table class="datalist">';
 		
 		//thead starts
 		$return .= "<thead>";

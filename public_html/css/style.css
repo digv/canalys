@@ -888,7 +888,7 @@ span.td-bold {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.datalist td:first-child,.datalist th:first-child {
+.datalist td:first-child {
 	border-left: medium none;
 }
 
@@ -900,17 +900,6 @@ span.td-bold {
 	border-top-style: none;
 }
 
-}
-.datalist th:first-child {
-	border-radius: 6px 0 0 0;
-}
-
-.datalist th:last-child {
-	border-radius: 0 6px 0 0;
-}
-
-.datalist th:only-child {
-	border-radius: 6px 6px 0 0;
 }
 
 .datalist tr:last-child td:first-child {

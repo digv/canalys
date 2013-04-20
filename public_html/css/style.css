@@ -909,7 +909,7 @@ span.td-bold {
 	border-radius: 0 0 6px 0;
 }
 
-.qbf {
+.qbf , .edit-input{
 	padding-left: 1px;
 	border-style: solid;
 	border-color: black;
@@ -924,8 +924,13 @@ span.td-bold {
 	background: none repeat scroll 0 0 #DFDFDF;
 }
 
-.edit-form.field {
+.edit-form .field {
 	border-top: 1px dashed rgba(0, 0, 0, 0.1);
 	margin-top: 5px;
 	padding: 5px;
+}
+
+.edit-input {
+	margin-left: 150px;
+	font-size:17px;width:15em
 }

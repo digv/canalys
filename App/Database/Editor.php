@@ -168,22 +168,20 @@ class Database_Editor {
 	public function renderEditor_PkField($col, $field) {
 		
 		$html .= '<div class="field">';
-		$html .= '<label for="'.$col['label'].'">'.$col['label']. '</label>';
+		$html .= '<label for="'.$col['label'].'" style="font-size:15px;">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
-		$html .= '<div class="editable">';
-		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' />";
-		$html .= '</div></div>';
+		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' class='edit-input' />";
+		$html .= '</div>';
 		return $html;
 	}
 	
 	//render free text part
 	public function renderEditor_String($col, $field) {
 		$html .= '<div class="field">';
-		$html .= '<label for="'.$col['label'].'">'.$col['label']. '</label>';
+		$html .= '<label for="'.$col['label'].'" style="font-size:15px;">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
-		$html .= '<div class="editable">';
-		$html .= "<input type='text' value='{$value}' name='{$field}' />";
-		$html .= '</div></div>';
+		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input' />";
+		$html .= '</div>';
 		return $html;
 	}
 	

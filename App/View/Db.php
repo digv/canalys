@@ -97,7 +97,7 @@ class View_Db extends View_Base {
 		$result['sortrow'] = $this->sortRow($params);
 
 		$jsonResult = json_encode($result);
-
+		header('Content-Type: application/json');
 		echo $jsonResult;
 	}
 	

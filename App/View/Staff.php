@@ -18,6 +18,10 @@ class View_Staff extends View_Db {
 		$return .= "<tr>";
 		$return .= $this->sortRow($params);
 		$return .= "</tr>";
+		$return .= "</thead>";	//thead ends
+		
+		
+		$return .= "<tbody>";
 		$return .= "<tr>";
 		foreach ($this->_model->getListingColumns() as $col) {
 			$return .= "<td>";
@@ -28,10 +32,7 @@ class View_Staff extends View_Db {
 			$return .= "</td>";
 		}
 		$return .= "</tr>";
-		$return .= "</thead>";	//thead ends
 		
-		
-		$return .= "<tbody>";
 		$return .= $this->resultTable();
 		$return .= "</tbody>";
 		

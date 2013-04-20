@@ -3,7 +3,7 @@ class View_Project extends View_Db {
 	
 	protected $baseUrl = "http://ca.digv.co/index.php/project/qbf";
 	
-	protected $heading = "Project Management";
+	public $heading = "Project Management";
 	
 	/*
 	 * sort rows

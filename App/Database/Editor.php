@@ -246,8 +246,8 @@ class Database_Editor {
 	//update record
 	public function _update () {
 		
-		$sql = "UPDATE ". $this->_pk;
-		$sql .= "SET ";
+		$sql = "UPDATE ". $this->_table;
+		$sql .= "  SET ";
 		$postValues = $this->processedPost;
 		
 		foreach ( $this->columns as $field => $col ) {

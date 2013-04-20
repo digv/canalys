@@ -127,6 +127,14 @@ class View_Db extends View_Base {
 			$.ajax ({
 				url:url,
 				type:'get',
+				dataType:'json',
+				success:function (text) {
+					
+					var json=eval('('+text+')');
+					$('.listbody').html(json.resultrows);
+					$('.sortrow').html(json.sortrow);
+	
+				},
 			
 			});
 		

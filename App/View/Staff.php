@@ -66,7 +66,7 @@ class View_Staff extends View_Db {
 		$return .= "</tr>";
 		$return .= "</thead>";	//thead ends
 		
-		$return .= "<tbody>";
+		$return .= "<tbody class='listbody'>";
 		$return .= $this->resultTable();
 		$return .= "</tbody>";
 		

@@ -128,11 +128,10 @@ class View_Db extends View_Base {
 				url:url,
 				type:'get',
 				dataType:'json',
-				success:function (text) {
+				success:function (response) {
 					
-					var json= $.parseJSON (text);
-					$('.listbody').html(json.resultrows);
-					$('.sortrow').html(json.sortrow);
+					$('.listbody').html(response.resultrows);
+					$('.sortrow').html(response.sortrow);
 	
 				},
 			

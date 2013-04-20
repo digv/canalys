@@ -2,7 +2,7 @@
 class Database_WorkAssignment extends Database_Editor {
 	
 	/*
-	 * for retrieving staff records from table
+	 * for retrieving work assignment records from table
 	 */
 	protected $sqlStatement = "SELECT ?  FROM assignment AS am
 							   JOIN staff AS sf using (staff_id)

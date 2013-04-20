@@ -1,26 +1,33 @@
 <?php
 class Database_Staff extends Database_Editor {
 	
+	/*
+	 * for retrieving staff records from table
+	 */
+	protected $sqlStatement = "SELECT ?  FROM staff as sf ";
+	
+	protected $_table = 'staff';
+	
 	protected $columns = array (
 	
-	'staff_id' => array (
+	'sf.staff_id' => array (
 			'label' => 'Staff Id',
 			'renderer' => 'string',
 		),
 		
-	'name' => array (
+	'sf.name' => array (
 		'label' => 'Staff Name',
 		'renderer' => 'string',
 		
 		),
 		
-	'birth_day' => array (
+	/*'sf.birth_day' => array (
 		'label' => 'Date Of Birth',
 		'renderer' => 'Date',
 		
-		),
+		),*/
 		
-	'gender' => array (
+	'sf.gender' => array (
 		'label' => 'Gender',
 		'renderer' => 'string',
 		

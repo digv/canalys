@@ -917,4 +917,6 @@ span.td-bold {
 	border-width: 1px;
 	font-family: helvetica, arial, sans serif;
 	padding-left: 1px;
+	font-size: 12px;
+    width: 15em;
 }

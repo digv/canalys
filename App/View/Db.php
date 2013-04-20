@@ -77,39 +77,6 @@ class View_Db extends View_Base {
 		return $url;
 	}
 		
-	/*
-	 * sort rows
-	 */
-	
-	public function sortRow($params) {
-		
-		$html = "";
-		
-		$hdrs = $this->_model->getListingHeaders ();
-		$cols = $this->_model->getListingColumns ();
-		$base = '/database/list/';
-		
-		foreach ( $hdrs as $idx => $hdr ) {
-			$col = $cols [$idx];
-			
-			$html .= "<td>";
-			if ($col == $params ['sort']) {
-				$html .= "<b>";
-				$url = $base . "?" . $this->encodeParams ( $params, 'offset', 0, 'sort', $col, 'so', - $params ['so'] );
-				$html .= "<a title=\"Reverse sort order\" href=\"$url\">$hdr</a>";
-				
-				$html .= "</b>";
-			} else {
-				$url = $base . "?" . $this->encodeParams ( $params, 'offset', 0, 'sort', $col, 'order', 1 );
-				$html .= "<a title=\"Sort by $hdr\" href=\"$url\">$hdr</a>";
-			}
-			
-			$html .= "</td>\n";
-		}
-		
-		return $html;
-	
-	}
 	
 	/*
 	 * Render an ajax result

@@ -54,6 +54,16 @@ class Database_Editor {
         foreach ($params['qbf'] as  $field => $fieldValue) {
         	$where[] = $field . " LIKE '%". $fieldValue. "%' ";
         }
+		
+		//handle list columns, only show those list=true;
+		
+
+		foreach ( $this->columns as $field => $col ) {
+			if (isset ( $col ['list'] ) && $col ['list']) {
+				$this->_listColumns [$field] = $col;
+			}
+		}
+        
 		$sql = $this->assembleSqlStatement();
 		if (!empty($where)) {
 			$where = " where " .implode(' AND ', $where);
@@ -64,14 +74,6 @@ class Database_Editor {
 		$sql = $sql . $where . $order;
 		$this->_listRows = App::getDb() -> query_all ($sql);
 		$this->_totalCount = App::getDb() -> query_one ('SELECT FOUND_ROWS()');
-		
-		//handle list columns, only show those list=true;
-		
-		foreach ($this->columns as $field =>  $col) {
-			if (isset($col['list']) && $col['list']) {
-				$this->_listColumns[$field] = $col;
-			}
-		}
 		
 	}
 	

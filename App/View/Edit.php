@@ -2,8 +2,10 @@
 class View_Edit extends View_Base {
 	
 	public function renderMain() {
-		$return = '<form method="post" />';
-		$return .= '<div class="edit-form">';
+		
+		$return = '<div class="edit-form">';
+		$return .= '<form method="post" />';
+		
 		$return .= $this->_model -> renderEditors ();
 		
 		$return .= '<div class="field">';
@@ -11,9 +13,8 @@ class View_Edit extends View_Base {
 		$return .= '<button class="edit-button" type="submit" name="deleterecord">Delete</button>';
 		$return .= '<div>';
 		
-		
-		$return .= '</div>';
 		$return .= '</form>';
+		$return .= '</div>';
 		
 		return $return;
 	}

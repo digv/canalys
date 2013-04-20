@@ -62,9 +62,31 @@ class Database_Editor {
 	
 	public function renderListingCell ($colName, $row) {
 		if (strpos($colName, '.') !== false) {
-			$colName = substr($colName, strpos($colName, '.'));
+			$colName = substr($colName, strpos($colName, '.') + 1);
 		}
 		 return $row[$colName];
+	}
+	
+	//for quick filter
+	public function canQbf ($col) {
+		if (isset($this->columns[$col]['qbf']))
+            return $this->columns[$col]['qbf'];
+        else
+            return true;
+	}
+		
+	/*
+	 * return human readable headers
+	 */
+	
+	public function getListingHeaders() {
+		$cols = array ();
+		
+		foreach ( $this->columns as $name => $col ) {
+			$label = $col ['label'];
+			$cols [] = $label;
+		}
+		return $cols;
 	}
 	
 }

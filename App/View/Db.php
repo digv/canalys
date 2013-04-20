@@ -24,6 +24,8 @@ class View_Db extends View_Base {
 			}
 			
 			$html .= "</tr>\n";
+			
+			$i ++;
 		
 		}
 		

@@ -45,17 +45,23 @@ class Database_Editor {
         $sort_order = $params['order'];
         
         $order = "";
-        $where = "";
+        $where = array();
         
         if (!empty($sort_field) && !empty($sort_order)) {
         	$order = " ORDER BY $sort_field $sort_order";
         }
         
-        foreach ($params['qbf'] as $filter) {
-        	
+        foreach ($params['qbf'] as  $field => $fieldValue) {
+        	$where[] = $field . " LIKE %'". $fieldValue. "%' ";
         }
-        if ($sort_field)
 		$sql = $this->assembleSqlStatement();
+		if (!empty($where)) {
+			$where = " where " .implode(' AND ', $where);
+		} else {
+			$where = '';
+		}
+		
+		$sql = $sql . $where . $order;
 		$this->_listRows = App::getDb() -> query_all ($sql);
 		$this->_totalCount = App::getDb() -> query_one ('SELECT FOUND_ROWS()');
 		

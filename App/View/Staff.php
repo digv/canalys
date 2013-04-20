@@ -18,7 +18,7 @@ class View_Staff extends View_Db {
 		$return .= "<tr class='sortrow'>";
 		$return .= $this->sortRow($params);
 		$return .= "</tr>";
-		$return .= "<tr>";
+		$return .= "<tr class='sortqbf'>";
 		foreach ($this->_model->getListingColumns() as $col) {
 			$return .= "<td>";
 			if ($this->_model -> canQbf ($col)) {

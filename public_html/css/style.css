@@ -756,6 +756,10 @@ span.td-bold {
 .sortrow td {
 	border-bottom-style:none;
 }
+.sortqbf td {
+    border-top-style:none;
+}
+}
 .datalist th:first-child {
     border-radius: 6px 0 0 0;
 }

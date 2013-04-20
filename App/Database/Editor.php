@@ -40,20 +40,28 @@ class Database_Editor {
 	public function prepareListing ($params) {
 		
 		$sql = $this->assembleSqlStatement();
-		$this->_listRows = App::getDb() -> querey_all ($sql);
+		$this->_listRows = App::getDb() -> query_all ($sql);
 		$this->_totalCount = App::getDb() -> query_one ('SELECT FOUND_ROWS()');
 		
-		var_dump($sql, $this->_listRows);
 	}
 	
 	public function getListingRows () {
+		
+		return $this->_listRows;
+	}
+	
+	public function getListingColumns () {
 		return array_keys($this->columns);
 	}
 	
 	public function assembleSqlStatement () {
-		$listRows = implode(' , ', $this->getListingRows());
+		$listRows = implode(' , ', $this->getListingColumns());
 		
 		return  str_replace('? ', ' SQL_CALC_FOUND_ROWS '.$listRows, $this->sqlStatement);
+	}
+	
+	public function renderListingCell ($colName, $row) {
+		 return $row[$colName];
 	}
 	
 }

@@ -13,7 +13,7 @@ class View_Db extends View_Base {
 		$cols = $this->_model->getListingColumns ();
 		$i = 0;
 		foreach ( $this->_model->getListingRows () as $row ) {
-			if ($i % 2 == 0) {
+			if ($i % 2 == 1) {
 				$class= "class='alt'";
 			} else {
 				$class = '';

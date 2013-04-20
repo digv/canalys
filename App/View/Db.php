@@ -140,7 +140,7 @@ class View_Db extends View_Base {
 		<script type="text/javascript">
 		function handleQbfCall () {
 		
-			var url = $this->baseUrl;
+			var url = '$this->baseUrl';
 			
 			var query;
 			

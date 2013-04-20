@@ -25,9 +25,14 @@ class Controller_Staff extends Core_Controller {
 	public function handleEdit () {
 		$this->mustLogin();
 		
-		var_dump($_POST);
 		$args = $this->getRequestArgs();
 		$model = new Database_Staff();
+		
+		if ($_POST['savechanges']) {
+			$model -> save();
+		} else if ($_POST['deleterecord']) {
+			
+		}
 		if (isset($args[0]) && is_numeric($args[0])) {
 			$model -> prepareEditor($args[0]);
 		}

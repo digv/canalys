@@ -42,6 +42,18 @@ class Database_Editor {
 	
 	protected  $_totalCount;
 	
+	/*
+	 * store post value 
+	 */
+	
+	protected $attributes = array();
+	
+	/*
+	 * store processed post data
+	 */
+	
+	protected $processedPost = array ();
+	
 	
 	public function prepareListing ($params) {
 		
@@ -140,11 +152,13 @@ class Database_Editor {
 			$row = App::getDb ()->query_one ( $sql, array ($key ) );
 			
 			foreach ($this->columns as $field => $col) {
-				$key = substr($field, strpos($field, '.' + 1));
+				$key = $this->removeTablePrefix($field);
 				if (isset($row[$key])) {
-					$this->columns[$field]['value'] = $row[$key];
+					$col['value'] = $row[$key];
+					$this->columns[$field] = $col;
 				}
 			}
+			
 		}
 		
 	}
@@ -183,6 +197,70 @@ class Database_Editor {
 		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input' />";
 		$html .= '</div>';
 		return $html;
+	}
+	
+	public function addItem ($attr, $value) {
+		//due to sf.field will be changed to sf_field, we need to get back
+		$attr = $this-> removeTablePrefix($attr, '_');
+		$this->attributes[$attr] = $value;
+		
+		return $this;
+	}
+	
+	//remove table alias prefix
+	public function removeTablePrefix ($attr, $flag = '.') {
+		return $attr = substr($attr, strpos($attr, $flag) + 1);
+	}
+	//if it is new, then insert 
+	public function _insert () {
+		$sql = "INSERT INTO ". $this->_table;
+		
+		$fields = array();
+		$placeHolder = array();
+		$values = array();
+		$postValues = $this->processedPost;
+		
+		foreach ($this->columns as $field) {
+			if ($field == $this->_pk) {
+				continue;
+			}
+			$field = $this->removeTablePrefix($field);
+			$fields[] = $field;
+			$placeHolder [] = " ? ";
+			if (isset($postValues[$field])) {
+				$values = trim($postValues[$field]);
+			}
+		}
+		
+		$sql .= "(". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
+		
+		var_dump($sql);
+		
+	}
+	
+	public function processPostData() {
+		foreach ( $_POST as $key => $val ) {
+			$key = $this->removeTablePrefix ( $key, '_' );
+			$this->processedPost [$key] = $val;
+		}
+		
+		return $this->processedPost;
+	}
+	//actions before save 
+	public function beforeSave() {
+		
+	}
+	
+	public function save () {
+		if (isset($_POST['savechanges'])) {
+			$postValues = $this->processPostData();
+			$normalPk = $this->removeTablePrefix($this->_pk);
+			if (isset($postValues[$normalPk]) && !empty($postValues[$normalPk])) {
+				
+			} else {
+				$this->_insert();
+			}
+		}
 	}
 	
 }

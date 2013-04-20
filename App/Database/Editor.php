@@ -139,11 +139,52 @@ class Database_Editor {
 			$sql .= ' WHERE '. $this-> _pk . '= ? ';
 			$row = App::getDb ()->query_one ( $sql, array ($key ) );
 			
-			var_dump($row);
+			foreach ($this->columns as $field => $col) {
+				$key = substr($field, strpos($field, '.' + 1));
+				if (isset($row[$key])) {
+					$this->columns[$field]['value'] = $row[$key];
+				}
+			}
 		}
 		
+	}
+	
+	//start to render editor
+	public function renderEditors () {
+		$html = '';
+		foreach ( $this->columns as $field => $col ) {
+			
+			if (isset ( $col ['renderer'] )) {
+				$initMethod = "renderEditor_" . $col ['renderer'];
+				if (method_exists ( $this, $initMethod )) {
+					$html .= $this->$initMethod ( $col , $field);
+				}
+			}
+		}
+		return $html;
+	}
+	
+	//render pk field or read only part
+	public function renderEditor_PkField($col, $field) {
 		
-		
+		$html .= '<div class="field">';
+		$html .= '<label for="'.$col['label'].'">'.$col['label']. '</label>';
+		$value = isset($col['value']) ? $col['value'] : '';
+		$html .= '<div class="editable">';
+		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' />";
+		$html .= '</div></div>';
+		return $html;
+	}
+	
+	//render free text part
+	public function renderEditor_String($col, $field) {
+		$html .= '<div class="field">';
+		$html .= '<label for="'.$col['label'].'">'.$col['label']. '</label>';
+		$value = isset($col['value']) ? $col['value'] : '';
+		$html .= '<div class="editable">';
+		$html .= "<input type='text' value='{$value}' name='{$field}' />";
+		$html .= '</div></div>';
+		return $html;
 	}
 	
 }

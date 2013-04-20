@@ -14,7 +14,7 @@ class Database_Staff extends Database_Editor {
 	
 	'sf.staff_id' => array (
 			'label' => 'Staff Id',
-			'renderer' => 'string',
+			'renderer' => 'pkField',
 			'list' => true,
 		),
 		

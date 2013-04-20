@@ -760,7 +760,7 @@ img {
 	overflow: hidden;
 }
 
-.company-statement {
+.company-statement, edit-form {
 	border: 1px solid #9DC4D8;
 	border-radius: 7px 7px 7px 7px;
 	padding-left: 1.5em;
@@ -901,7 +901,6 @@ span.td-bold {
 }
 
 }
-
 .datalist tr:last-child td:first-child {
 	border-radius: 0 0 0 6px;
 }
@@ -918,9 +917,15 @@ span.td-bold {
 	font-family: helvetica, arial, sans serif;
 	padding-left: 1px;
 	font-size: 12px;
-    width: 15em;
+	width: 15em;
 }
 
 .alt {
 	background: none repeat scroll 0 0 #DFDFDF;
+}
+
+.edit-form.field {
+	border-top: 1px dashed rgba(0, 0, 0, 0.1);
+	margin-top: 5px;
+	padding: 5px;
 }

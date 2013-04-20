@@ -36,7 +36,7 @@ class View_Db extends View_Base {
 		
 		$params ['pagesize'] = isset ( $_GET ['p'] ) ? intval ( $_GET ['p'] ) : 25;
 		$params ['offset'] = isset ( $_GET ['o'] ) ? intval ( $_GET ['o'] ) : 0;
-		$params ['sort'] = isset ( $_GET ['sf'] ) ? preg_replace ( '/[^a-z0-9_]/i', '', $_GET ['sf'] ) : '';
+		$params ['sort'] = isset ( $_GET ['sf'] ) ? preg_replace ( '/[^a-z0-9_\.]/i', '', $_GET ['sf'] ) : '';
 		$params ['so'] = isset ( $_GET ['so'] ) ? intval ( $_GET ['so'] ) : 1;
 		$params ['order'] = $params ['so'] > 0 ? 'asc' : 'desc';
 		

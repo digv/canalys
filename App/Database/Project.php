@@ -13,12 +13,13 @@ class Database_Project extends Database_Editor {
 	'pt.project_id' => array (
 			'label' => 'Project Id',
 			'renderer' => 'string',
+			'list' => true,
 		),
 		
 	'pt.project_name' => array (
 		'label' => 'Project Name',
 		'renderer' => 'string',
-		
+		'list' => true,
 		),
 		
 	);

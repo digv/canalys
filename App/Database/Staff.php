@@ -13,12 +13,13 @@ class Database_Staff extends Database_Editor {
 	'sf.staff_id' => array (
 			'label' => 'Staff Id',
 			'renderer' => 'string',
+			'list' => true,
 		),
 		
 	'sf.name' => array (
 		'label' => 'Staff Name',
 		'renderer' => 'string',
-		
+		'list' => true,
 		),
 		
 	/*'sf.birth_day' => array (
@@ -30,6 +31,7 @@ class Database_Staff extends Database_Editor {
 	'sf.gender' => array (
 		'label' => 'Gender',
 		'renderer' => 'string',
+		'list' => true,
 		
 		),
 		

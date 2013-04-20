@@ -15,12 +15,13 @@ class Database_WorkAssignment extends Database_Editor {
 	'am.staff_id' => array (
 			'label' => 'Project Id',
 			'renderer' => 'string',
+			'list' => true,
 		),
 		
 	'sf.name' => array (
 		'label' => 'Staff Name',
 		'renderer' => 'string',
-		
+		'list' => true,
 		),
 		
 	/*'sf.birth_day' => array (
@@ -32,7 +33,7 @@ class Database_WorkAssignment extends Database_Editor {
 	'pt.project_name' => array (
 		'label' => 'Project Name',
 		'renderer' => 'string',
-		
+		'list' => true,
 		),
 		
 		

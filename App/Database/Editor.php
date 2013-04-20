@@ -65,6 +65,14 @@ class Database_Editor {
 		$this->_listRows = App::getDb() -> query_all ($sql);
 		$this->_totalCount = App::getDb() -> query_one ('SELECT FOUND_ROWS()');
 		
+		//handle list columns, only show those list=true;
+		
+		foreach ($this->columns as $field =>  $col) {
+			if (isset($col['list']) && $col['list']) {
+				$this->_listColumns[$field] = $col;
+			}
+		}
+		
 	}
 	
 	public function getListingRows () {
@@ -73,7 +81,7 @@ class Database_Editor {
 	}
 	
 	public function getListingColumns () {
-		return array_keys($this->columns);
+		return array_keys($this->_listColumns);
 	}
 	
 	public function assembleSqlStatement () {
@@ -104,11 +112,13 @@ class Database_Editor {
 	public function getListingHeaders() {
 		$cols = array ();
 		
-		foreach ( $this->columns as $name => $col ) {
+		foreach ( $this->_listColumns as $name => $col ) {
 			$label = $col ['label'];
 			$cols [] = $label;
 		}
 		return $cols;
 	}
+	
+	
 	
 }

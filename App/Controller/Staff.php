@@ -8,10 +8,25 @@ class Controller_Staff extends Core_Controller {
 		$view -> render ();
 	}
 	
+	/*
+	 * handle quick filter
+	 */
 	public function handleQbf () {
 		$this->mustLogin();
 		$model = new Database_Staff();
 		$view = $this->prepView('View_Staff', $model);
 		$view -> renderAjax ();
+	}
+	
+	/*
+	 * handle edit
+	 */
+	
+	public function handleEdit () {
+		$args = $this->getRequestArgs();
+		$model = new Database_Staff();
+		var_dump($args);
+		$view = $this->prepView('View_Edit', $model);
+		$view -> render ();
 	}
 }

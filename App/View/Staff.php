@@ -15,10 +15,10 @@ class View_Staff extends View_Db {
 		
 		//thead starts
 		$return .= "<thead>";
-		$return .= "<th class='sortrow'>";
+		$return .= "<tr class='sortrow'>";
 		$return .= $this->sortRow($params);
-		$return .= "</th>";
-		$return .= "<th class='sortqbf'>";
+		$return .= "</tr>";
+		$return .= "<tr class='sortqbf'>";
 		foreach ($this->_model->getListingColumns() as $col) {
 			$return .= "<td>";
 			if ($this->_model -> canQbf ($col)) {
@@ -27,7 +27,7 @@ class View_Staff extends View_Db {
 			}
 			$return .= "</td>";
 		}
-		$return .= "</th>";
+		$return .= "</tr>";
 		$return .= "</thead>";	//thead ends
 		
 		$return .= "<tbody>";

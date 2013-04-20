@@ -868,7 +868,7 @@ span.td-bold {
 	box-shadow: 0 1px 1px #CCCCCC;
 }
 
-.datalist tr:hover {
+.datalist tbody tr:hover {
 	background: none repeat scroll 0 0 #FBF8E9;
 	transition: all 0.1s ease-in-out 0s;
 }

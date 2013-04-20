@@ -168,7 +168,7 @@ class Database_Editor {
 	public function renderEditor_PkField($col, $field) {
 		
 		$html .= '<div class="field">';
-		$html .= '<label for="'.$col['label'].'" style="font-size:15px;">'.$col['label']. '</label>';
+		$html .= '<label for="'.$col['label'].'" class="edit-label">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
 		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' class='edit-input' />";
 		$html .= '</div>';
@@ -178,7 +178,7 @@ class Database_Editor {
 	//render free text part
 	public function renderEditor_String($col, $field) {
 		$html .= '<div class="field">';
-		$html .= '<label for="'.$col['label'].'" style="font-size:15px;">'.$col['label']. '</label>';
+		$html .= '<label for="'.$col['label'].'" class="edit-label">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
 		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input' />";
 		$html .= '</div>';

@@ -931,6 +931,13 @@ span.td-bold {
 }
 
 .edit-input {
-	margin-left: 150px;
-	font-size:17px;width:15em
+	font-size:17px;
+	width:15em;
+}
+
+.edit-label {
+	display: block;
+    float: left;
+    font-size: 15px;
+    width: 200px
 }

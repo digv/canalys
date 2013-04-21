@@ -41,8 +41,8 @@ class View_Staff extends View_Db {
 		//get url params and parse
 		$params = $this->parseParams();
 		
-		
-		$return = "<div class='heading-title'><h1>Staff Management</h1></div>";
+		$return = "<div class='edit-form'>";
+		$return .= "<div class='heading-title'><h1>Staff Management</h1></div>";
 		
 		$this->_model-> prepareListing ($params);
 		
@@ -71,7 +71,7 @@ class View_Staff extends View_Db {
 		$return .= "</tbody>";
 		
 		
-		$return .= '</table>';
+		$return .= '</table></div>';
 		
 		$return .= $this->renderQbfJs();
 		

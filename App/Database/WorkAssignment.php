@@ -67,7 +67,7 @@ class Database_WorkAssignment extends Database_Editor {
 		$baseUrl = $helper -> baseUrl();
 		
 		if ($colName == $this->removeTablePrefix($this->_pk)) {
-			$html = "<a href='{$baseUrl}index.php/staff/edit/{$row [$colName]}' target='_blank'>";
+			$html = "<a href='{$baseUrl}index.php/default/edit/{$row [$colName]}' target='_blank'>";
 			$html .= $row [$colName];
 			$html .= '</a>';
 			return $html;

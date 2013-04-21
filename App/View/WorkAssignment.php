@@ -42,7 +42,7 @@ class View_WorkAssignment extends View_Db {
 		$params = $this->parseParams();
 		
 		
-		$return = "<h1>Staff Management</h1>";
+		$return = "<div class='heading-title'><h1>Assignment Management</h1></div>";
 		
 		$this->_model-> prepareListing ($params);
 		

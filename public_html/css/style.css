@@ -993,3 +993,16 @@ span.td-bold {
 .block .block-title a {
     text-decoration: none !important;
 }
+
+.block ul {
+    padding:12px;
+}
+
+.block li {
+    font-size:14px;
+    padding:3px;
+}
+
+.heading-title {
+    padding:12px 12px;
+}

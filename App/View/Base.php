@@ -36,7 +36,7 @@ class View_Base extends Core_View {
 		$return = '';
 		$helper = Helper_Url::getInstance();
     	foreach ($this->jsincludes as $js) {
-    		$js = $helper -> cleanUrl(). '/'. $js;
+    		//$js = $helper -> cleanUrl(). '/'. $js;
     		$return .= '<script type="text/javascript" src="' . $js . '"></script>';
     	}
     	return $return;
@@ -56,7 +56,7 @@ class View_Base extends Core_View {
 		$return = '';
 		$helper = Helper_Url::getInstance();
 		foreach ( $this->display_css as $css ) {
-			$css = $helper -> cleanUrl(). '/'. $css;
+			//$css = $helper -> cleanUrl(). '/'. $css;
 			$return .= "<link rel=\"stylesheet\" href=\"{$css}\" type=\"text/css\" />\n";
 		}
 		return $return;

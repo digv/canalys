@@ -16,7 +16,7 @@ class View_Base extends Core_View {
      * Ordered list of CSS files for display
      */
 	public $display_css = array (
-		'css/style.css',
+		'http://ca.digv.co/css/style.css',
 		'http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css',
 	);
 	
@@ -24,9 +24,9 @@ class View_Base extends Core_View {
      * Ordered list of Javascript include files
      */
 	public $jsincludes = array (
-		'js/jquery-1.9.1.min.js',
+		'http://ca.digv.co/js/jquery-1.9.1.min.js',
 		'http://code.jquery.com/ui/1.10.2/jquery-ui.js',
-		'js/common.js',
+		'http://ca.digv.co/js/common.js',
 	);
 	
 	/*

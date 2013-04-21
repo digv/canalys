@@ -242,8 +242,8 @@ class Database_Editor {
 		}
 		
 		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
-		
-		return App::getDb() -> query ($sql, $values) -> last_insert_id ();
+		App::getDb() -> query ($sql, $values);
+		return  App::getDb()-> last_insert_id ();
 		
 	}
 	

@@ -239,7 +239,7 @@ class Database_Editor {
 		
 		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
 		
-		var_dump($sql, $values);
+		return App::getDb() -> query ($sql, $values);
 		
 	}
 	
@@ -263,9 +263,10 @@ class Database_Editor {
 		}
 		$normalPk = $this->removeTablePrefix($this->_pk);
 		$pkValue = $postValues[$normalPk];
-		$sql .= implode(', ', $placeHolder). ' WHERE '. $normalPk . ' = "'. $pkValue. '"';
+		$values[] = $pkValue;
+		$sql .= implode(', ', $placeHolder). ' WHERE '. $normalPk . ' = ? ';
 		
-		var_dump($sql, $values);
+		return App::getDb() -> query ($sql, $values);
 		
 	}
 	public function processPostData() {
@@ -284,12 +285,26 @@ class Database_Editor {
 	public function save() {
 		$postValues = $this->processPostData ();
 		$normalPk = $this->removeTablePrefix ( $this->_pk );
-		var_dump($postValues, $normalPk);
 		if (isset ( $postValues [$normalPk] ) && ! empty ( $postValues [$normalPk] )) {
 			$this->_update();
 		} else {
 			$this->_insert ();
 		}
+	}
+	
+	public function delete () {
+		$sql = "DELETE FROM ". $this->_table;
+		$normalPk = $this->removeTablePrefix($this->_pk);
+		$postValues = $this->processPostData();
+		$pkValue = isset($postValues[$normalPk]) ? $postValues[$normalPk] : '';
+		if (!empty($pkValue)) {
+			$sql .= " WHERE {$normalPk} = ? ";
+			
+			return App::getDb() -> query ($sql, array($pkValue));
+		} else {
+			return false;
+		}
+		
 	}
 	
 }

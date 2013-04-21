@@ -29,9 +29,13 @@ class Controller_Staff extends Core_Controller {
 		$model = new Database_Staff();
 		
 		if (isset($_POST['savechanges'])) {
-			$model -> save();
+			if($model -> save()) {
+				
+			}
 		} else if (isset($_POST['deleterecord'])) {
-			
+			if($model -> delete()) {
+				header("location:http://ca.digv.co/index.php/staff");
+			}
 		}
 		if (isset($args[0]) && is_numeric($args[0])) {
 			$model -> prepareEditor($args[0]);

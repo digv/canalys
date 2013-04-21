@@ -17,7 +17,7 @@ class View_Base extends Core_View {
      */
 	public $display_css = array (
 		'css/style.css',
-		'css/jquery-ui.css',
+		'http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css',
 	);
 	
 	/*
@@ -25,7 +25,7 @@ class View_Base extends Core_View {
      */
 	public $jsincludes = array (
 		'js/jquery-1.9.1.min.js',
-		'js/jquery-ui.js',
+		'http://code.jquery.com/ui/1.10.2/jquery-ui.js',
 		'js/common.js',
 	);
 	

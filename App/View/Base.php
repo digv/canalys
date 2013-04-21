@@ -180,11 +180,17 @@ html;
 		$helper = Helper_Url::getInstance();
 		$baseUrl = $helper -> baseUrl();
 		
+		if ($_SESSION['userName']) {
+			$last = '<li class="last"><a href="'. $baseUrl. 'index.php/logout"><span>Logout</span></a></li>';
+		} else  {
+			$last = '<li class="last"><a href="'. $baseUrl. 'index.php"><span>Login</span></a></li>';	
+		}
 		$return  = <<<html
 					<ul id="nav2">
                         <li class=""><a href="{$baseUrl}"><span>Home</span></a></li>
                         <li class=""><a href="{$baseUrl}index.php/staff"><span>Staff</span></a></li>
                         <li class=""><a href="{$baseUrl}index.php/project"><span>Project</span></a></li>
+						{$last}
                     </ul>
                     <div class="clear_both">
                         <span></span>

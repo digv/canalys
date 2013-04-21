@@ -354,7 +354,7 @@ class Database_Editor {
 	
 	public function checkUnique($table, $columns, $values) {
 		$sql = "SELECT * FROM $table ";
-		$sql = 'WHERE '. implode(' = ? AND ', $columns). ' = ? ';
+		$sql .= 'WHERE '. implode(' = ? AND ', $columns). ' = ? ';
 		return  App::getDb()-> query_one ($sql, $values); 
 	}
 	

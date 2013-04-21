@@ -228,7 +228,7 @@ class Database_Editor {
 		$placeHolder = array();
 		$values = array();
 		$postValues = $this->processedPost;
-		
+		$columns = array();
 		foreach ($this->columns as $field => $col) {
 			if ($field == $this->_pk) {
 				continue;
@@ -236,14 +236,14 @@ class Database_Editor {
 			$field = $this->removeTablePrefix($field);
 			$fields[] = $field;
 			$placeHolder [] = " ? ";
+			$columns[$field] = isset($postValues[$field]) ? trim($postValues[$field]) : '';
 			if (isset($postValues[$field])) {
 				$values[] = trim($postValues[$field]);
 			}
 		}
 		
 		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
-		App::getDb() -> query ($sql, $values);
-		return  App::getDb()-> last_insert_id ();
+		return  App::getDb() -> insert ($this->_table, $columns);;
 		
 	}
 	

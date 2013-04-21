@@ -28,11 +28,14 @@ class Controller_Staff extends Core_Controller {
 		$args = $this->getRequestArgs();
 		$model = new Database_Staff();
 		
+		$helper = Helper_Url::getInstance();
+		$baseUrl = $helper -> baseUrl();
+		
 		if (isset($_POST['savechanges'])) {
 			$value = $model -> save();
 			
 			if(is_numeric($value)) {
-				header("location:http://ca.digv.co/index.php/staff/edit/".$value);
+				header("location:{$baseUrl}index.php/staff/edit/".$value);
 			} else if($value){
 				$model -> msg = "Successfully saved !";
 			} else {
@@ -40,7 +43,7 @@ class Controller_Staff extends Core_Controller {
 			}
 		} else if (isset($_POST['deleterecord'])) {
 			if($model -> delete()) {
-				header("location:http://ca.digv.co/index.php/staff");
+				header("location:{$baseUrl}index.php/staff");
 			}
 		}
 		if (isset($args[0]) && is_numeric($args[0])) {

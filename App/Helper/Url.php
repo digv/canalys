@@ -11,7 +11,7 @@ class Helper_Url {
 	public function baseUrl () {
 		
 		
-		return 'http://'. $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+		return 'http://ca.digv.co/';
 	}
 	
 	public function cleanUrl () {

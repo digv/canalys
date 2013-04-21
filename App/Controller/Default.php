@@ -26,11 +26,13 @@ class Controller_Default extends Core_Controller {
 		$args = $this->getRequestArgs ();
 		$model = new Database_WorkAssignment ();
 		
+		$helper = Helper_Url::getInstance();
+		$baseUrl = $helper -> baseUrl();
 		if (isset ( $_POST ['savechanges'] )) {
 			$value = $model->save ();
 			
 			if (is_numeric ( $value )) {
-				header ( "location:http://ca.digv.co/index.php/default/edit/" . $value );
+				header ( "location:{$baseUrl}index.php/default/edit/" . $value );
 			} else if ($value) {
 				$model->msg = "Successfully saved !";
 			} else {
@@ -38,7 +40,7 @@ class Controller_Default extends Core_Controller {
 			}
 		} else if (isset ( $_POST ['deleterecord'] )) {
 			if ($model->delete ()) {
-				header ( "location:http://ca.digv.co/index.php" );
+				header ( "location:{$baseUrl}index.php" );
 			}
 		}
 		if (isset ( $args [0] ) && is_numeric ( $args [0] )) {

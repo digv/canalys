@@ -45,9 +45,11 @@ class Database_Staff extends Database_Editor {
 	
 	public function renderListingCell($colName, $row) {
 		$colName = $this->removeTablePrefix ( $colName );
+		$helper = Helper_Url::getInstance();
+		$baseUrl = $helper -> baseUrl();
 		//for primary key, link to edit page
 		if ($colName == $this->removeTablePrefix($this->_pk)) {
-			$html = "<a href='http://ca.digv.co/index.php/staff/edit/{$row [$colName]}' target='_blank'>";
+			$html = "<a href='{$baseUrl}index.php/staff/edit/{$row [$colName]}' target='_blank'>";
 			$html .= $row [$colName];
 			$html .= '</a>';
 			return $html;

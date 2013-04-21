@@ -83,14 +83,16 @@ class View_Staff extends View_Db {
 	 */
 	public function renderSideBar() {
 		
+		$helper = Helper_Url::getInstance();
+		$baseUrl = $helper -> baseUrl();
 		$return = '<div class="block">';
 		$return .= '<div class="block-title"><strong><span>Useful Links</span></strong></div>';
 		$return .= '<ul>';
 		$return .= '<li>';
-		$return .= '<a href="">Work assignment index</a>';
+		$return .= '<a href="'. $baseUrl. 'staff">Staff index</a>';
 		$return .= '</li>';
 		$return .= '<li>';
-		$return .= '<a href="">Create new assignment</a>';
+		$return .= '<a href="'. $baseUrl. 'staff/edit/">Add new staff</a>';
 		$return .= '</li>';
 		$return .= '</ul>';
 		$return .= '</div>';

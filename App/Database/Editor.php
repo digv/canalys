@@ -54,6 +54,10 @@ class Database_Editor {
 	
 	protected $processedPost = array ();
 	
+	/*
+	 * msg for some info
+	 */
+	public $msg = '';
 	
 	public function prepareListing ($params) {
 		

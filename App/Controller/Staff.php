@@ -30,7 +30,7 @@ class Controller_Staff extends Core_Controller {
 		
 		if (isset($_POST['savechanges'])) {
 			if($model -> save()) {
-				
+				$model -> msg = "Successfully saved !";
 			}
 		} else if (isset($_POST['deleterecord'])) {
 			if($model -> delete()) {

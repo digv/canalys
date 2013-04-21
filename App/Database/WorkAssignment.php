@@ -22,15 +22,23 @@ class Database_WorkAssignment extends Database_Editor {
 		
 	'sf.name' => array (
 		'label' => 'Staff Name',
-		'renderer' => 'string',
+		'renderer' => 'select',
 		'list' => true,
+		'link_table' => array ('staff' => 
+								array('option' => 'staff_id', 'label' => 'name'),
+								
+							),
 		),
 		
 		
 	'pt.project_name' => array (
 		'label' => 'Project Name',
-		'renderer' => 'string',
+		'renderer' => 'select',
 		'list' => true,
+		'link_table' => array ('project' => 
+								array('option' => 'project_id', 'label' => 'project_name'),
+								
+							),
 		),
 		
 	'pt.due_day' => array (
@@ -71,5 +79,35 @@ class Database_WorkAssignment extends Database_Editor {
 		return $row [$colName];
 	}
 	
+	
+	/*
+	 * render select
+	 */
+	
+	public function renderEditor_Select ($col, $field) {
+		$html = '<div class="field">';
+		$html .= '<label for="' . $col ['label'] . '" class="edit-label">' . $col ['label'] . '</label>';
+		$value = isset ( $col ['value'] ) ? $col ['value'] : '';
+		
+		$table = array_shift(array_keys($col['link_table']));
+		$option = $col['link_table'][$table]['option'];
+		$label = $col['link_table'][$table]['label'];
+		
+		$sql = "SELECT $option, $label FROM $table ";
+		$results = App::getDb() -> query_all ($sql);
+		var_dump($results);
+		
+		$html .= "<select name='{$field}' class='edit-select'>";
+		foreach ($genders as $gender) {
+			$selected = '';
+			if ($value == $gender) {
+				$selected = 'selected="selected"';
+			}
+			$html .= "<option $selected value='{$gender}'>{$gender}</option>";
+		}
+		$html .= "</select>";
+		$html .= '</div>';
+		return $html;
+	}
 	
 }

@@ -14,7 +14,7 @@ class Database_Project extends Database_Editor {
 	
 	'pt.project_id' => array (
 			'label' => 'Project Id',
-			'renderer' => 'string',
+			'renderer' => 'pkField',
 			'list' => true,
 		),
 		

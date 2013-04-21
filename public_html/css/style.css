@@ -861,6 +861,7 @@ span.td-bold {
 }
 
 .datalist {
+	table-layout:fixed;
 	border-spacing: 0;
 	width: 100%;
 	border: 1px solid #CCCCCC;
@@ -917,7 +918,7 @@ span.td-bold {
 	font-family: helvetica, arial, sans serif;
 	padding-left: 1px;
 	font-size: 12px;
-	width: 15em;
+	width: 100%;
 }
 
 .alt {
@@ -1009,4 +1010,10 @@ span.td-bold {
 
 .ui-datepicker { 
   z-index: 1000 !important;;
+}
+
+.white-edit-form {
+    border-radius: 7px 7px 7px 7px;
+    padding-left: 1.5em;
+    margin: 0;
 }

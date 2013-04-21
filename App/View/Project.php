@@ -42,7 +42,7 @@ class View_Project extends View_Db {
 		//get url params and parse
 		$params = $this->parseParams();
 		
-		$return = "<div class='edit-form'>";
+		$return = "<div class='white-edit-form'>";
 		$return .= "<div class='heading-title'><h1>Project Management</h1></div>";
 		
 		$this->_model-> prepareListing ($params);

@@ -95,15 +95,14 @@ class Database_WorkAssignment extends Database_Editor {
 		
 		$sql = "SELECT $option, $label FROM $table ";
 		$results = App::getDb() -> query_all ($sql);
-		var_dump($results);
 		
 		$html .= "<select name='{$field}' class='edit-select'>";
-		foreach ($genders as $gender) {
+		foreach ($results as $result) {
 			$selected = '';
-			if ($value == $gender) {
+			if ($value == $result[$label]) {
 				$selected = 'selected="selected"';
 			}
-			$html .= "<option $selected value='{$gender}'>{$gender}</option>";
+			$html .= "<option $selected value='{$result[$option]}'>{$result[$label]}</option>";
 		}
 		$html .= "</select>";
 		$html .= '</div>';

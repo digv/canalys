@@ -57,7 +57,7 @@ class Database_Staff extends Database_Editor {
 		
 		if ($colName == 'birthday') {
 			if ($row[$colName] == '0000-00-00 00:00:00') {
-				$html = "na (age:na)";
+				$html = "na (Age:na)";
 			} else {
 				$curYear = date('Y', time());
 				$birthYear = date('Y', strtotime($row[$colName]));
@@ -65,7 +65,7 @@ class Database_Staff extends Database_Editor {
 				if ($age < 0) {
 					$age = 'na';
 				}
-				$html = $row[$colName]. "(age:{$age})";
+				$html = date('m/d/Y', strtotime($row[$colName])). " (Age:{$age})";
 			}
 			
 			return $html;

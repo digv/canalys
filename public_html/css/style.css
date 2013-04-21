@@ -1006,3 +1006,7 @@ span.td-bold {
 .heading-title {
     padding:12px 12px;
 }
+
+.ui-datepicker { 
+  z-index: 1000;
+}

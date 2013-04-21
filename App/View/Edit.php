@@ -11,29 +11,13 @@ class View_Edit extends View_Base {
 		
 		$return .= '<div class="field">';
 		$return .= '<button class="edit-button savechanges" type="submit" name="savechanges">Save</button>';
-		$return .= '<button class="edit-button deleterecord" type="submit" name="deleterecord">Delete</button>';
+		$return .= '<button class="edit-button deleterecord" 
+					onclick="return confirm (\'Are you sure to delete this record ?\')"
+					type="submit" name="deleterecord">Delete</button>';
 		$return .= '</div>';
 		
 		$return .= '</form>';
 		$return .= '</div>';
-		
-		$return .= <<<html
-		<script type="text/javascript>">
-			$(document).ready (function (){
-				
-				$('.deleterecord').onclick (confirmDeletion);
-			
-			});
-			
-			function confirmDeletion () {
-			
-				if (confirm ('Are you sure to delete this record ?') == false) {
-					return false;
-				}
-			}
-		</script>
-		
-html;
 		
 		return $return;
 	}

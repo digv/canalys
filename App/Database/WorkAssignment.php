@@ -10,7 +10,7 @@ class Database_WorkAssignment extends Database_Editor {
 	
 	protected $_table = 'assignment';
 	
-	protected $_pk = 'am.assigment_id';
+	protected $_pk = 'am.assignment_id';
 	
 	protected $columns = array (
 	

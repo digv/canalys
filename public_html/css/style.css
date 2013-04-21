@@ -965,3 +965,31 @@ span.td-bold {
 .edit-button:hover {
     background-color:#378de5;
 }
+
+.block {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #83ABC6;
+    border-radius: 7px 7px 7px 7px;
+    margin: 0 0 11px;
+    text-align: left;
+    width: 202px;
+}
+
+.block .block-title {
+    background-color: #EAF3FE;
+    border-bottom: medium none;
+    border-radius: 7px 7px 0 0;
+    color: #000000;
+    line-height: 16px;
+    padding: 6px 10px;
+}
+.block .block-title strong {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+}
+.block .block-title strong span {
+}
+.block .block-title a {
+    text-decoration: none !important;
+}

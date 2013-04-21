@@ -77,9 +77,9 @@ class Database_WorkAssignment extends Database_Editor {
 			$present = time();
 			$dueDay = strtotime($row[$colName]);
 			if ($dueDay < $present) {
-				$html = "<span style='color:red;'>$row[$colName]</span>";
+				$html = "<span style='color:red;'>".date('m/d/Y', strtotime($row[$colName]))."</span>";
 			} else {
-				$html = $row[$colName];
+				$html = date('m/d/Y', strtotime($row[$colName]));
 			}
 			
 			return $html;

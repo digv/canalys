@@ -55,6 +55,22 @@ class Database_Staff extends Database_Editor {
 			return $html;
 		}
 		
+		if ($colName == 'birthday') {
+			if ($row[$colName] == '0000-00-00 00:00:00') {
+				$html = "na (age:na)";
+			} else {
+				$curYear = date('Y', time());
+				$birthYear = date('Y', strtotime($row[$colName]));
+				$age =  $curYear - $birthYear;
+				if ($age < 0) {
+					$age = 'na';
+				}
+				$html = $row[$colName]. "(age:{$age})";
+			}
+			
+			return $html;
+		}
+		
 		return $row [$colName];
 	}
 }

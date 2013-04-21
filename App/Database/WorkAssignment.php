@@ -98,12 +98,13 @@ class Database_WorkAssignment extends Database_Editor {
 		$option = $col['link_table'][$table]['option'];
 		$label = $col['link_table'][$table]['label'];
 		
-		$sql = "SELECT $option, $label FROM $table ";
-		$results = App::getDb() -> query_all ($sql);
-		
 		$html .= "<select name='{$option}' class='edit-select'>";
 		$option = $this->removeTablePrefix($option);
 		$label = $this -> removeTablePrefix($label);
+		
+		$sql = "SELECT $option, $label FROM $table ";
+		$results = App::getDb() -> query_all ($sql);
+		
 		foreach ($results as $result) {
 			$selected = '';
 			if ($value == $result[$label]) {

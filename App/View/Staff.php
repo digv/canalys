@@ -42,7 +42,7 @@ class View_Staff extends View_Db {
 		$params = $this->parseParams();
 		
 		$return = "<div class='white-edit-form'>";
-		$return .= "<div class='heading-title'><h1>Staff Management</h1></div>";
+		$return .= "<div class='heading-title'><h1>Staff Management</h1><div class='loading'></div></div>";
 		
 		$this->_model-> prepareListing ($params);
 		

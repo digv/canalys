@@ -35,7 +35,7 @@ class Database_WorkAssignment extends Database_Editor {
 		
 	'pt.due_day' => array (
 		'label' => 'Due Day',
-		'renderer' => 'string',
+		'renderer' => 'date',
 		'list' => true,
 		),
 	

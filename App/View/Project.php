@@ -3,8 +3,6 @@ class View_Project extends View_Db {
 	
 	protected $baseUrl = "http://ca.digv.co/index.php/project/qbf";
 	
-	public $heading = "Project Management";
-	
 	/*
 	 * sort rows
 	 */
@@ -43,7 +41,7 @@ class View_Project extends View_Db {
 		$params = $this->parseParams();
 		
 		$return = "<div class='white-edit-form'>";
-		$return .= "<div class='heading-title'><h1>Project Management</h1></div>";
+		$return .= "<div class='heading-title'><h1>Project Management</h1><div class='loading'></div></div>";
 		
 		$this->_model-> prepareListing ($params);
 		

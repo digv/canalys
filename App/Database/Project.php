@@ -8,6 +8,8 @@ class Database_Project extends Database_Editor {
 	
 	protected $_table = 'project';
 	
+	protected $_pk = 'pt.project_id';
+	
 	protected $columns = array (
 	
 	'pt.project_id' => array (

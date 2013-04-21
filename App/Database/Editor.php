@@ -243,7 +243,7 @@ class Database_Editor {
 		
 		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
 		
-		return App::getDb() -> query ($sql, $values);
+		return App::getDb() -> query ($sql, $values) -> last_insert_id ();
 		
 	}
 	
@@ -290,9 +290,9 @@ class Database_Editor {
 		$postValues = $this->processPostData ();
 		$normalPk = $this->removeTablePrefix ( $this->_pk );
 		if (isset ( $postValues [$normalPk] ) && ! empty ( $postValues [$normalPk] )) {
-			$this->_update();
+			return $this->_update();
 		} else {
-			$this->_insert ();
+			 return $this->_insert ();
 		}
 	}
 	

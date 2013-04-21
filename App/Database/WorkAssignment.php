@@ -127,8 +127,14 @@ class Database_WorkAssignment extends Database_Editor {
 			if ($field == $this->removeTablePrefix($this->_pk)) {
 				continue;
 			}
+			$fields[] = $field;
 			$placeHolder [] = $field . " = ? ";
 			$values [] = isset ( $postValues [$field] ) ? trim ( $postValues [$field] ) : '';
+		}
+		$check = $this->checkUnique($this->_table, $fields, $values);
+		
+		if ($check) {
+			return  false;
 		}
 		$normalPk = $this->removeTablePrefix($this->_pk);
 		$pkValue = $postValues[$normalPk];
@@ -149,10 +155,15 @@ class Database_WorkAssignment extends Database_Editor {
 			}
 			$columns [$field] = isset ( $postValues [$field] ) ? trim ( $postValues [$field] ) : '';
 		}
+		$check = $this->checkUnique($this->_table, array_keys($columns), array_values($columns));
+		if ($check) {
+			return false;
+		}
 		
 		return App::getDb ()->insert ( $this->_table, $columns );
 		;
 	
 	}
+	
 	
 }

@@ -348,4 +348,14 @@ class Database_Editor {
 		
 	}
 	
+	/*
+	 * check if unique key exists 
+	 */
+	
+	public function checkUnique($table, $columns, $values) {
+		$sql = "SELECT * FROM $table ";
+		$sql = 'WHERE '. implode(' = ? AND ', $columns). ' = ? ';
+		return  App::getDb()-> query_one ($sql, $values); 
+	}
+	
 }

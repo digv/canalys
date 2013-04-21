@@ -27,7 +27,7 @@ class Database_Staff extends Database_Editor {
 	'sf.birthday' => array (
 		'label' => 'Date Of Birth',
 		'renderer' => 'Date',
-		
+		'list' => true,
 		),
 		
 	'sf.gender' => array (

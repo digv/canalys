@@ -111,6 +111,11 @@ class View_Db extends View_Base {
 	public function renderQbfJs () {
 		$html = <<<html
 		<script type="text/javascript">
+		$(document).ready (function () {
+		
+			$('.qbf').bind ('keyup', handleQbfCall)
+		
+		});
 		function handleQbfCall () {
 		
 			var url = '$this->baseUrl';

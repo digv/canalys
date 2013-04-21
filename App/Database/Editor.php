@@ -114,11 +114,9 @@ class Database_Editor {
 		return  str_replace('? ', ' SQL_CALC_FOUND_ROWS '.$listRows, $this->sqlStatement);
 	}
 	
-	public function renderListingCell ($colName, $row) {
-		if (strpos($colName, '.') !== false) {
-			$colName = substr($colName, strpos($colName, '.') + 1);
-		}
-		 return $row[$colName];
+	public function renderListingCell($colName, $row) {
+		$colName = $this->removeTablePrefix ( $colName );
+		return $row [$colName];
 	}
 	
 	//for quick filter
@@ -222,11 +220,6 @@ class Database_Editor {
 	}
 	//if it is new, then insert 
 	public function _insert () {
-		$sql = "INSERT INTO ". $this->_table;
-		
-		$fields = array();
-		$placeHolder = array();
-		$values = array();
 		$postValues = $this->processedPost;
 		$columns = array();
 		foreach ($this->columns as $field => $col) {
@@ -234,15 +227,9 @@ class Database_Editor {
 				continue;
 			}
 			$field = $this->removeTablePrefix($field);
-			$fields[] = $field;
-			$placeHolder [] = " ? ";
 			$columns[$field] = isset($postValues[$field]) ? trim($postValues[$field]) : '';
-			if (isset($postValues[$field])) {
-				$values[] = trim($postValues[$field]);
-			}
 		}
 		
-		$sql .= " (". implode(',', $fields). ') values ('. implode(",", $placeHolder) . ')';
 		return  App::getDb() -> insert ($this->_table, $columns);;
 		
 	}

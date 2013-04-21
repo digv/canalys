@@ -37,9 +37,22 @@ class Database_Staff extends Database_Editor {
 		
 		),
 		
-		
-	
-	
-	
 	);
+	
+	/*
+	 * render listing cells
+	 */
+	
+	public function renderListingCell($colName, $row) {
+		$colName = $this->removeTablePrefix ( $colName );
+		//for primary key, link to edit page
+		if ($colName == $this->removeTablePrefix($this->_pk)) {
+			$html = "<a href='http://ca.digv.co/index.php/staff/edit/{$row [$colName]}' target='_blank'>";
+			$html .= $row [$colName];
+			$html .= '</a>';
+			return $html;
+		}
+		
+		return $row [$colName];
+	}
 }

@@ -14,7 +14,7 @@ class Database_WorkAssignment extends Database_Editor {
 	
 	protected $columns = array (
 	
-	'am.assigment_id' => array (
+	'am.assignment_id' => array (
 			'label' => 'Assignment Id',
 			'renderer' => 'pkField',
 			'list' => true,

@@ -28,6 +28,7 @@ class Database_Staff extends Database_Editor {
 		'label' => 'Date Of Birth',
 		'renderer' => 'date',
 		'list' => true,
+		'qbf' => false,
 		),
 		
 	'sf.gender' => array (

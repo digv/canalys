@@ -50,6 +50,7 @@ class Database_WorkAssignment extends Database_Editor {
 		'label' => 'Due Day',
 		//'renderer' => 'date',
 		'list' => true,
+		'qbf' => false,
 		),
 	
 	);

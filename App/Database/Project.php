@@ -28,6 +28,7 @@ class Database_Project extends Database_Editor {
 		'label' => 'Due Day',
 		'renderer' => 'date',
 		'list' => true,
+		'qbf' => false,
 		),
 		
 	);

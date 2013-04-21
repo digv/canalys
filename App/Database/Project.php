@@ -48,6 +48,14 @@ class Database_Project extends Database_Editor {
 			return $html;
 		}
 		
+		if ($colName == 'due_day') {
+			if ($row [$colName] == '0000-00-00 00:00:00') {
+				$html = "na";
+			} else {
+				$html = date ( 'm/d/Y', strtotime ( $row [$colName] ) );
+			}
+			return $html;
+		}
 		return $row [$colName];
 	}
 }

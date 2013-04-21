@@ -77,4 +77,23 @@ class View_WorkAssignment extends View_Db {
 		
 		return $return;
 	}
+	
+	/*
+	 * render usefull link sidebar
+	 */
+	public function renderSideBar() {
+		
+		$return = '<div class="block">';
+		$return .= '<div class="block-title"><strong><span>Useful Links</span></strong></div>';
+		$return .= '<ul>';
+		$return .= '<li>';
+		$return .= '<a href="">Work assignment index</a>';
+		$return .= '</li>';
+		$return .= '<li>';
+		$return .= '<a href="">Create new assignment</a>';
+		$return .= '</li>';
+		$return .= '</ul>';
+		$return .= '</div>';
+		return $return;
+	}
 }

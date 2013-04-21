@@ -12,6 +12,12 @@ class Database_WorkAssignment extends Database_Editor {
 	
 	protected $_pk = 'am.assignment_id';
 	
+	/*
+	 * store table schema for save
+	 */
+	
+	protected $tableSchema = array('assignment_id', 'staff_id', 'project_id');
+	
 	protected $columns = array (
 	
 	'am.assignment_id' => array (
@@ -25,8 +31,7 @@ class Database_WorkAssignment extends Database_Editor {
 		'renderer' => 'select',
 		'list' => true,
 		'link_table' => array ('staff' => 
-								array('option' => 'staff_id', 'label' => 'name'),
-								
+								array('option' => 'sf.staff_id', 'label' => 'sf.name'),
 							),
 		),
 		
@@ -36,14 +41,14 @@ class Database_WorkAssignment extends Database_Editor {
 		'renderer' => 'select',
 		'list' => true,
 		'link_table' => array ('project' => 
-								array('option' => 'project_id', 'label' => 'project_name'),
+								array('option' => 'pt.project_id', 'label' => 'pt.project_name'),
 								
 							),
 		),
 		
 	'pt.due_day' => array (
 		'label' => 'Due Day',
-		'renderer' => 'date',
+		//'renderer' => 'date',
 		'list' => true,
 		),
 	
@@ -96,7 +101,9 @@ class Database_WorkAssignment extends Database_Editor {
 		$sql = "SELECT $option, $label FROM $table ";
 		$results = App::getDb() -> query_all ($sql);
 		
-		$html .= "<select name='{$field}' class='edit-select'>";
+		$html .= "<select name='{$option}' class='edit-select'>";
+		$option = $this->removeTablePrefix($option);
+		$label = $this -> removeTablePrefix($label);
 		foreach ($results as $result) {
 			$selected = '';
 			if ($value == $result[$label]) {
@@ -107,6 +114,44 @@ class Database_WorkAssignment extends Database_Editor {
 		$html .= "</select>";
 		$html .= '</div>';
 		return $html;
+	}
+	
+	//update record
+	public function _update () {
+		
+		$sql = "UPDATE ". $this->_table;
+		$sql .= "  SET ";
+		$postValues = $this->processedPost;
+		foreach ( $this->tableSchema as $field ) {
+			if ($field == $this->removeTablePrefix($this->_pk)) {
+				continue;
+			}
+			$placeHolder [] = $field . " = ? ";
+			$values [] = isset ( $postValues [$field] ) ? trim ( $postValues [$field] ) : '';
+		}
+		$normalPk = $this->removeTablePrefix($this->_pk);
+		$pkValue = $postValues[$normalPk];
+		$values[] = $pkValue;
+		$sql .= implode(', ', $placeHolder). ' WHERE '. $normalPk . ' = ? ';
+		
+		return App::getDb() -> query ($sql, $values);
+		
+	}
+	
+	//if it is new, then insert 
+	public function _insert() {
+		$postValues = $this->processedPost;
+		$columns = array ();
+		foreach ( $this->tableSchema as $field ) {
+			if ($field == $this->removeTablePrefix($this->_pk)) {
+				continue;
+			}
+			$columns [$field] = isset ( $postValues [$field] ) ? trim ( $postValues [$field] ) : '';
+		}
+		
+		return App::getDb ()->insert ( $this->_table, $columns );
+		;
+	
 	}
 	
 }

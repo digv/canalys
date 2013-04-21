@@ -294,7 +294,6 @@ class Database_Editor {
 				continue;
 			}
 			$field = $this->removeTablePrefix ( $field );
-			$fields [] = $field;
 			$placeHolder [] = $field . " = ? ";
 			if ($col ['renderer'] == 'date') {
 				if (isset ( $postValues [$field] )) {

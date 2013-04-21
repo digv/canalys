@@ -92,7 +92,7 @@ class View_WorkAssignment extends View_Db {
 		$return .= '<a href="'. $baseUrl. '">Work assignment index</a>';
 		$return .= '</li>';
 		$return .= '<li>';
-		$return .= '<a href="'. $baseUrl. 'default/edit/">Create new assignment</a>';
+		$return .= '<a href="'. $baseUrl. 'index/default/edit/">Create new assignment</a>';
 		$return .= '</li>';
 		$return .= '</ul>';
 		$return .= '</div>';

@@ -186,7 +186,7 @@ class Database_Editor {
 		$html = '<div class="field">';
 		$html .= '<label for="'.$col['label'].'" class="edit-label">'.$col['label']. '</label>';
 		$value = isset($col['value']) ? $col['value'] : '';
-		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' class='edit-input' />";
+		$html .= "<input readonly='readonly' type='text' value='{$value}' name='{$field}' class='edit-input' style='border-color:white' />";
 		$html .= '</div>';
 		return $html;
 	}
@@ -209,8 +209,12 @@ class Database_Editor {
 		
 		//if we got value, format to mm/dd/yyyy
 		if ($value) {
-			$timestamp = strtotime ( $value );
-			$value = date("m/d/Y", $timestamp);
+			if ($value == '0000-00-00 00:00:00') {
+				$value = "00/00/0000";
+			} else {
+				$timestamp = strtotime ( $value );
+				$value = date ( "m/d/Y", $timestamp );
+			}
 		}
 		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input date-picker' />";
 		$html .= '</div>';

@@ -42,7 +42,7 @@ class View_Staff extends View_Db {
 		$params = $this->parseParams();
 		
 		
-		$return = "<h1>Staff Management</h1>";
+		$return = "<div class='heading-title'><h1>Staff Management</h1></div>";
 		
 		$this->_model-> prepareListing ($params);
 		
@@ -75,6 +75,25 @@ class View_Staff extends View_Db {
 		
 		$return .= $this->renderQbfJs();
 		
+		return $return;
+	}
+	
+	/*
+	 * render usefull link sidebar
+	 */
+	public function renderSideBar() {
+		
+		$return = '<div class="block">';
+		$return .= '<div class="block-title"><strong><span>Useful Links</span></strong></div>';
+		$return .= '<ul>';
+		$return .= '<li>';
+		$return .= '<a href="">Work assignment index</a>';
+		$return .= '</li>';
+		$return .= '<li>';
+		$return .= '<a href="">Create new assignment</a>';
+		$return .= '</li>';
+		$return .= '</ul>';
+		$return .= '</div>';
 		return $return;
 	}
 }

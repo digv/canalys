@@ -22,5 +22,11 @@ class Database_Project extends Database_Editor {
 		'list' => true,
 		),
 		
+	'pt.due_day' => array (
+		'label' => 'Due Day',
+		'renderer' => 'date',
+		'list' => true,
+		),
+		
 	);
 }

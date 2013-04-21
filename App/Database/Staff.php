@@ -24,11 +24,11 @@ class Database_Staff extends Database_Editor {
 		'list' => true,
 		),
 		
-	/*'sf.birth_day' => array (
+	'sf.birthday' => array (
 		'label' => 'Date Of Birth',
 		'renderer' => 'Date',
 		
-		),*/
+		),
 		
 	'sf.gender' => array (
 		'label' => 'Gender',

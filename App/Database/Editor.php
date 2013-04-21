@@ -201,6 +201,22 @@ class Database_Editor {
 		return $html;
 	}
 	
+	//render free text part
+	public function renderEditor_Date($col, $field) {
+		$html = '<div class="field">';
+		$html .= '<label for="' . $col ['label'] . '" class="edit-label">' . $col ['label'] . '</label>';
+		$value = isset ( $col ['value'] ) ? $col ['value'] : '';
+		
+		//if we got value, format to mm/dd/yyyy
+		if ($value) {
+			$timestamp = strtotime ( $value );
+			$value = date("m/d/Y", $timestamp);
+		}
+		$html .= "<input type='text' value='{$value}' name='{$field}' class='edit-input date-picker' />";
+		$html .= '</div>';
+		return $html;
+	}
+	
 	public function addItem ($attr, $value) {
 		//due to sf.field will be changed to sf_field, we need to get back
 		$attr = $this-> removeTablePrefix($attr, '_');

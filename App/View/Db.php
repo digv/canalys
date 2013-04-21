@@ -134,7 +134,7 @@ class View_Db extends View_Base {
 				}
 			
 			});
-			$('.loading').html ('Loading, please wait') ;
+			$('.loading').html ('Loading, please wait...') ;
 			url = url + '?' + query;
 			$.ajax ({
 				url:url,
@@ -144,7 +144,7 @@ class View_Db extends View_Base {
 					
 					$('.listbody').html(response.resultrows);
 					$('.sortrow').html(response.sortrow);
-					$('.loading').html ();
+					$('.loading').html ('');
 				},
 			
 			});

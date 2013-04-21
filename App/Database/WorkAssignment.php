@@ -56,6 +56,20 @@ class Database_WorkAssignment extends Database_Editor {
 			return $html;
 		}
 		
+		if ($colName == 'due_day') {
+			$present = strtotime(now());
+			$dueDay = strtotime($row[$colName]);
+			if ($dueDay < $present) {
+				$html = "<span style='color:red;'>$row[$colName]</span>";
+			} else {
+				$html = $row[$colName];
+			}
+			
+			return $html;
+		}
+		
 		return $row [$colName];
 	}
+	
+	
 }

@@ -1007,6 +1007,6 @@ span.td-bold {
     padding:12px 12px;
 }
 
-.date-picker { 
-  z-index: 1000;
+.ui-datepicker { 
+  z-index: 1000 !important;;
 }

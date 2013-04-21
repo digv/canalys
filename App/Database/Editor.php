@@ -221,6 +221,29 @@ class Database_Editor {
 		return $html;
 	}
 	
+	/*
+	 * render gender
+	 */
+	
+	public function renderEditor_Gender ($col, $field) {
+		$html = '<div class="field">';
+		$html .= '<label for="' . $col ['label'] . '" class="edit-label">' . $col ['label'] . '</label>';
+		$value = isset ( $col ['value'] ) ? $col ['value'] : '';
+		
+		$genders = array('female', 'male', 'na');
+		$html .= "<select name='{$field}' class='edit-select'>";
+		foreach ($genders as $gender) {
+			$selected = '';
+			if ($value == $gender) {
+				$selected = 'selected="selected"';
+			}
+			$html .= "<option $selected value='{$gender}'>{$gender}</option>";
+		}
+		$html .= "</select>";
+		$html .= '</div>';
+		return $html;
+	}
+	
 	public function addItem ($attr, $value) {
 		//due to sf.field will be changed to sf_field, we need to get back
 		$attr = $this-> removeTablePrefix($attr, '_');
@@ -246,7 +269,12 @@ class Database_Editor {
 			if ($field == $this->_pk) {
 				continue;
 			}
-			$field = $this->removeTablePrefix($field);
+			$field = $this->removeTablePrefix ( $field );
+			if ($col ['renderer'] == 'date') {
+				if (isset ( $postValues [$field] )) {
+					$postValues [$field] = date ( 'Y-m-d 00:00:00', strtotime ( $postValues [$field] ) );
+				}
+			}
 			$columns[$field] = isset($postValues[$field]) ? trim($postValues[$field]) : '';
 		}
 		
@@ -268,9 +296,12 @@ class Database_Editor {
 			$field = $this->removeTablePrefix ( $field );
 			$fields [] = $field;
 			$placeHolder [] = $field . " = ? ";
-			if (isset ( $postValues [$field] )) {
-				$values[] = trim ( $postValues [$field] );
+			if ($col ['renderer'] == 'date') {
+				if (isset ( $postValues [$field] )) {
+					$postValues [$field] = date ( 'Y-m-d 00:00:00', strtotime ( $postValues [$field] ) );
+				}
 			}
+			$values [] = isset ( $postValues [$field] ) ? trim ( $postValues [$field] ) : '';
 		}
 		$normalPk = $this->removeTablePrefix($this->_pk);
 		$pkValue = $postValues[$normalPk];

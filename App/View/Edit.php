@@ -17,6 +17,24 @@ class View_Edit extends View_Base {
 		$return .= '</form>';
 		$return .= '</div>';
 		
+		$return .= <<<html
+		<script type="text/javascript>">
+			$(document).ready (function (){
+				
+				$('.deleterecord').onclick (confirmDeletion);
+			
+			});
+			
+			function confirmDeletion () {
+			
+				if (confirm ('Are you sure to delete this record ?') == false) {
+					return false;
+				}
+			}
+		</script>
+		
+html;
+		
 		return $return;
 	}
 		
